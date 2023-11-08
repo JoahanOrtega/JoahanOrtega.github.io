@@ -59,14 +59,21 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand" href="index.html"><img src="img/logo.jpeg" height="50px"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div>
-          <form class="d-flex mx-auto" role="search">
-            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-            <button class="btn btn-primary btn-sm" type="submit">Buscar</button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Productos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contacto</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
           </form>
         </div>
       </div>
@@ -81,6 +88,7 @@
       <div class="product-details">
         <h1 id="product-name"></h1>
         <p id="product-description"></p>
+        <p id="product-stock"></p>
         <p id="product-price"></p>
         <button type="button" class="btn btn-primary" onclick="addToCart()">Agregar al carrito</button>
         <p id="cart-message"></p>
@@ -94,7 +102,7 @@
       const productPrice = document.getElementById('product-price').textContent;
 
       const cartMessage = document.getElementById('cart-message');
-      cartMessage.textContent = `¡${productName} ha sido agregado al carrito de compras por ${productPrice}!`;
+      cartMessage.textContent = `Se ha agregado ${productName} al carrito de compras`;
     }
 
     document.addEventListener("DOMContentLoaded", function () {
@@ -104,12 +112,14 @@
           const productName = document.getElementById('product-name');
           const productImage = document.getElementById('product-image');
           const productDescription = document.getElementById('product-description');
+          const productStock = document.getElementById('product-stock');
           const productPrice = document.getElementById('product-price');
 
           productName.textContent = data.nombre;
           productImage.src = data.imagen;
           productImage.alt = data.nombre;
           productDescription.textContent = data.descripcion;
+          productStock.textContent = `Stock: ${data.stock}`;
           productPrice.textContent = `Precio: $${data.precio}`;
         })
         .catch(error => {
