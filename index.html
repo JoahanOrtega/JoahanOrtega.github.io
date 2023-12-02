@@ -68,7 +68,7 @@
                             <a class="nav-link" href="#" title="Productos"><h3>Productos</h3> </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" title="Contacto"><h3>Contacto</h3></a>
+                            <a class="nav-link" href="#" title="Contacto" data-bs-toggle="modal" data-bs-target="#contactModal"><h3>Contacto</h3> </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="cart.html"><h3>Carrito</h3></a>
@@ -273,7 +273,31 @@
         </div>
 
     </footer>
-
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">Redes Sociales</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Contenido de tus redes sociales -->
+                    <a href="https://www.facebook.com/profile.php?id=61553482133702" target="_blank"
+                        class="btn btn-outline-primary" title="Facebook">
+                        <img src="img/facebook.png" class="img-fluid" alt="Facebook" title="Facebook" style="width: 30px;">
+                        Facebook
+                    </a>
+    
+                    <a href="https://instagram.com/tanyroo7?igshid=OGQ5ZDc2ODk2ZA==" target="_blank"
+                        class="btn btn-outline-primary" title="Instagram">
+                        <img src="img/instagram.png" class="img-fluid" alt="Instagram" title="Instagram"
+                            style="width: 30px;">
+                        Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
