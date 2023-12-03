@@ -52,70 +52,76 @@
       font-size: 20px;
       font-weight: bold;
     }
+
     .star-rating {
-            font-size: 0;
-        }
+      font-size: 0;
+    }
 
-        .star-rating input {
-            display: none;
-            
-        }
-        .star-rating label {
-            display: inline-block;
-            cursor: pointer;
-            width: 25px;
-            height: 25px;
-            background-image: url('img/Estrella_Blanca.png'); /* Reemplaza 'star.png' con la ruta de tu imagen de estrella */
-            background-size: cover;
-        }
-        .star-rating input:checked ~ label {
-            background-image: url('img/Estrella_amarilla.png');
-        }
+    .star-rating input {
+      display: none;
 
-        .review-container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+    }
 
-        .review {
-            border-bottom: 1px solid #ddd;
-            padding: 15px 0;
-        }
+    .star-rating label {
+      display: inline-block;
+      cursor: pointer;
+      width: 25px;
+      height: 25px;
+      background-image: url('img/Estrella_Blanca.png');
+      /* Reemplaza 'star.png' con la ruta de tu imagen de estrella */
+      background-size: cover;
+    }
 
-        .review:last-child {
-            border-bottom: none;
-        }
+    .star-rating input:checked~label {
+      background-image: url('img/Estrella_amarilla.png');
+    }
 
-        .user-avatar {
-            border-radius: 50%;
-            margin-right: 10px;
-            width: 60px; 
-            height: 60px; 
-        }
-        .userinfo {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
+    .review-container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-        .user-name {
-            font-weight: bold;
-            margin-right: 10px;
-        }
+    .review {
+      border-bottom: 1px solid #ddd;
+      padding: 15px 0;
+    }
 
-        .review-text {
-            line-height: 1.6;
-        }
-        .title {
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-            margin: 20px 0;
-        }
+    .review:last-child {
+      border-bottom: none;
+    }
+
+    .user-avatar {
+      border-radius: 50%;
+      margin-right: 10px;
+      width: 60px;
+      height: 60px;
+    }
+
+    .userinfo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .user-name {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .review-text {
+      line-height: 1.6;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      margin: 20px 0;
+    }
   </style>
 </head>
 
@@ -137,7 +143,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="cart.html">Carrito</a>
-          </li>
+            </li>
           </ul>
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -153,7 +159,7 @@
       <div class="product-image">
         <img id="product-image" src="" alt="">
       </div>
-     
+
       <div class="product-details">
         <div class="star-rating">
           <input type="radio" id="star5" name="rating" value="5">
@@ -166,102 +172,102 @@
           <label for="star2"></label>
           <input type="radio" id="star1" name="rating" value="1">
           <label for="star1"></label>
-      </div>
+        </div>
         <h1 id="product-name"></h1>
         <p id="product-description"></p>
         <p id="product-stock"></p>
         <p id="product-price"></p>
         <button type="button" id="addToCartBtn" class="btn btn-primary">Agregar al carrito</button>
         <p id="cart-message"></p>
-       
+
       </div>
-      
+
     </div>
     <div class="review-container">
       <div class="title">
-        <P > RESEÑAS</P>
+        <P> RESEÑAS</P>
       </div>
-     
-      <div class="review">
-          <div class="userinfo">
-              <img src="img/WhatsApp Image 2023-11-16 at 23.43.23.jpeg" alt="User Avatar" class="user-avatar">
-              <div class="user-name">YuliThaily2</div>
-          </div>
-          <p class="review-text">El producto me encanto. Lo recomiendo mucho.</p>
-      </div>
-  
-      <div class="review">
-          <div class="userinfo">
-              <img src="img/usuario.jpeg" alt="User Avatar" class="user-avatar">
-              <div class="user-name">Usuario2</div>
-          </div>
-          <p class="review-text">El producto tenia un pequeño detalle pero considero que el diseño es lindo.</p>
-      </div>
-  </div>
- 
-  <script>
-    function addToCart() {
-      const productName = document.getElementById('product-name').textContent;
-      const productPriceText = document.getElementById('product-price').textContent;
-  const productPrice = parseFloat(productPriceText.replace('Precio:$', '').trim()); // Convierte la cadena a un número
-     
-      const cartItem={
-    name: productName,
-    price: productPrice,
-    quantity: 2,
-      };
 
-      const cartMessage = document.getElementById('cart-message');
-// Obtiene el carrito actual del localStorage
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
- // Agrega el producto al carrito
- cart.push(cartItem);
+      <div class="review">
+        <div class="userinfo">
+          <img src="img/WhatsApp Image 2023-11-16 at 23.43.23.jpeg" alt="User Avatar" class="user-avatar">
+          <div class="user-name">YuliThaily2</div>
+        </div>
+        <p class="review-text">El producto me encanto. Lo recomiendo mucho.</p>
+      </div>
 
-// Guarda el carrito actualizado en el localStorage
-localStorage.setItem('cart', JSON.stringify(cart));
+      <div class="review">
+        <div class="userinfo">
+          <img src="img/usuario.jpeg" alt="User Avatar" class="user-avatar">
+          <div class="user-name">Usuario2</div>
+        </div>
+        <p class="review-text">El producto tenia un pequeño detalle pero considero que el diseño es lindo.</p>
+      </div>
+    </div>
+
+    <script>
+      function addToCart() {
+        const productName = document.getElementById('product-name').textContent;
+        const productPriceText = document.getElementById('product-price').textContent;
+        const productPrice = parseFloat(productPriceText.replace('Precio:$', '').trim()); // Convierte la cadena a un número
+
+        const cartItem = {
+          name: productName,
+          price: productPrice,
+          quantity: 2,
+        };
+
+        const cartMessage = document.getElementById('cart-message');
+        // Obtiene el carrito actual del localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        // Agrega el producto al carrito
+        cart.push(cartItem);
+
+        // Guarda el carrito actualizado en el localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
 
 
         cartMessage.textContent = `Se ha agregado ${productName} al carrito de compras`;
-      console.log('Se ha agregado un producto al carrito');
-    }
-    
-    document.addEventListener("DOMContentLoaded", function () {
-      fetch('producto.json')
-        .then(response => response.json())
-        .then(data => {
-          const productName = document.getElementById('product-name');
-          const productImage = document.getElementById('product-image');
-          const productDescription = document.getElementById('product-description');
-          const productStock = document.getElementById('product-stock');
-          const productPrice = document.getElementById('product-price');
+        console.log('Se ha agregado un producto al carrito');
+      }
 
-          productName.textContent = data.nombre;
-          productImage.src = data.imagen;
-          productImage.alt = data.nombre;
-          productDescription.textContent = data.descripcion;
-          productStock.textContent = `Stock: ${data.stock}`;
-          productPrice.textContent = `Precio:$${data.precio}`;
-        })
-        .catch(error => {
-          console.error('Error:', error);
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch('producto.json')
+          .then(response => response.json())
+          .then(data => {
+            const productName = document.getElementById('product-name');
+            const productImage = document.getElementById('product-image');
+            const productDescription = document.getElementById('product-description');
+            const productStock = document.getElementById('product-stock');
+            const productPrice = document.getElementById('product-price');
+
+            productName.textContent = data.nombre;
+            productImage.src = data.imagen;
+            productImage.alt = data.nombre;
+            productDescription.textContent = data.descripcion;
+            productStock.textContent = `Stock: ${data.stock}`;
+            productPrice.textContent = `Precio:$${data.precio}`;
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+
+
+        // Obtener el botón "Agregar al carrito"
+        const addToCartBtn = document.getElementById('addToCartBtn');
+
+        // Agregar un evento de clic al botón
+        addToCartBtn.addEventListener('click', function () {
+          // Lógica para agregar al carrito
+          addToCart();
         });
 
-        
-      // Obtener el botón "Agregar al carrito"
-      const addToCartBtn = document.getElementById('addToCartBtn');
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
 
-      // Agregar un evento de clic al botón
-      addToCartBtn.addEventListener('click', function () {
-      // Lógica para agregar al carrito
-      addToCart();
-    });
-
-    });
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-  
 </body>
 
 </html>
