@@ -1,46 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src=">"></script>
 </head>
+
 <body>
     <div id="paypal-button-container"></div>
-    <script src="https://www.paypal.com/sdk/js?client-id=AWO1g6zM0_TAQLszHz3CpAKwHn7cBvRBh2ZvQgQbgjbX5DobDsakQiSycMrlC495gMflAwfeMmt9j1RU&currency=MXN"></script>
-    
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=AWO1g6zM0_TAQLszHz3CpAKwHn7cBvRBh2ZvQgQbgjbX5DobDsakQiSycMrlC495gMflAwfeMmt9j1RU&currency=MXN"></script>
+
     <script>
         // Render the PayPal button into #paypal-button-container
         paypal.Buttons({
-            style:{
+            style: {
                 color: 'blue',
-                shape:'pill',
-                label:'pay',
+                shape: 'pill',
+                label: 'pay',
                 height: 40
             },
             //info del pago
-           createOrder:function(data,actions){
-           return actions.order.create({
-                   purchase_units:[{
-                    amount:{
-                        value:100
-                    }
-                   }]
+            createOrder: function (data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: 100
+                        }
+                    }]
                 });
-           },
-           onApprove:function(data,actions){
-actions.order.capture().then(function(detalles){
-alert("pago completado");
-    //arroja lo que pase
-console.log(detalles);
-});
-           },
-           onCancel: function(data){
-            alert("pago cancelado");
-            console.log(data);
-           }
+            },
+            onApprove: function (data, actions) {
+                actions.order.capture().then(function (detalles) {
+                    alert("pago completado");
+                    //arroja lo que pase
+                    console.log(detalles);
+                });
+            },
+            onCancel: function (data) {
+                alert("pago cancelado");
+                console.log(data);
+            }
         }).render('#paypal-button-container');
     </script>
 </body>
+
 </html>
