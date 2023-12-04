@@ -9,7 +9,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-PDZQCEZKDN');
   </script>
 
@@ -75,42 +74,47 @@
         <p id="product-price"></p>
         <button type="button" id="addToCartBtn" class="btn btn-primary">Agregar al carrito</button>
         <p id="cart-message"></p>
-
       </div>
-
     </div>
+
     <div class="review-container">
       <div class="title">
-        <P> RESEÑAS</P>
+        <p>RESEÑAS</p>
       </div>
 
-      <div class="review">
-        <div class="userinfo">
-          <img src="img/WhatsApp Image 2023-11-16 at 23.43.23.jpeg" alt="User Avatar" class="user-avatar">
-          <div class="user-name">YuliThaily2</div>
+      <!-- Contenedor de comentarios -->
+     
+      <!-- Formulario para agregar comentarios -->
+      <form id="commentForm">
+        <h2>Agregar Comentario</h2>
+        <div class="mb-3">
+          <label for="userName" class="form-label">Nombre de Usuario:</label>
+          <input type="text" class="form-control" id="userName" required>
         </div>
-        <p class="review-text">El producto me encanto. Lo recomiendo mucho.</p>
-      </div>
-
-      <div class="review">
-        <div class="userinfo">
-          <img src="img/usuario.jpeg" alt="User Avatar" class="user-avatar">
-          <div class="user-name">Usuario2</div>
+        <div class="mb-3">
+          <label for="userComment" class="form-label">Comentario:</label>
+          <textarea class="form-control" id="userComment" rows="3" required></textarea>
         </div>
-        <p class="review-text">El producto tenia un pequeño detalle pero considero que el diseño es lindo.</p>
+        <button type="button" class="btn btn-primary" id="addCommentBtn">Agregar Comentario</button>
+      </form>
+      <div class="review" id="commentsContainer">
+        <!-- Comentarios existentes se mostrarán aquí -->
       </div>
     </div>
+    
 
-    <script>
+  </div>
+  
+  <script>
       function addToCart() {
         const productName = document.getElementById('product-name').textContent;
         const productPriceText = document.getElementById('product-price').textContent;
         const productPrice = parseFloat(productPriceText.replace('Precio:$', '').trim()); // Convierte la cadena a un número
-
+        console.log(productPrice);
         const cartItem = {
           name: productName,
           price: productPrice,
-          quantity: 2,
+          quantity: 1,
         };
 
         const cartMessage = document.getElementById('cart-message');
@@ -128,42 +132,84 @@
       }
 
       document.addEventListener("DOMContentLoaded", function () {
+        // Obtener el id del producto de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = parseInt(urlParams.get('id'));
+
         fetch('producto.json')
           .then(response => response.json())
           .then(data => {
-            const productName = document.getElementById('product-name');
-            const productImage = document.getElementById('product-image');
-            const productDescription = document.getElementById('product-description');
-            const productStock = document.getElementById('product-stock');
-            const productPrice = document.getElementById('product-price');
+            // Filtrar el producto por id
+            const selectedProduct = data.find(product => product.id === 1);
 
-            productName.textContent = data.nombre;
-            productImage.src = data.imagen;
-            productImage.alt = data.nombre;
-            productDescription.textContent = data.descripcion;
-            productStock.textContent = `Stock: ${data.stock}`;
-            productPrice.textContent = `Precio:$${data.precio}`;
+            if (selectedProduct) {
+              const productName = document.getElementById('product-name');
+              const productImage = document.getElementById('product-image');
+              const productDescription = document.getElementById('product-description');
+              const productStock = document.getElementById('product-stock');
+              const productPrice = document.getElementById('product-price');
+              
+
+              productName.textContent = selectedProduct.nombre;
+              productImage.src = selectedProduct.imagen;
+              productImage.alt = selectedProduct.nombre;
+              productDescription.textContent = selectedProduct.descripcion;
+              productStock.textContent = `Stock: ${selectedProduct.stock}`;
+              productPrice.textContent = `Precio: $${selectedProduct.precio.toFixed(2)}`;
+              
+
+              const addToCartBtn = document.getElementById('addToCartBtn');
+              addToCartBtn.addEventListener('click', function () {
+                addToCart(selectedProduct.nombre, selectedProduct.precio);
+              });
+            } else {
+              console.error('Producto no encontrado');
+            }
           })
           .catch(error => {
             console.error('Error:', error);
           });
-
-
-        // Obtener el botón "Agregar al carrito"
-        const addToCartBtn = document.getElementById('addToCartBtn');
-
-        // Agregar un evento de clic al botón
-        addToCartBtn.addEventListener('click', function () {
-          // Lógica para agregar al carrito
-          addToCart();
-        });
-
       });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"></script>
 
+      // Función para agregar comentarios
+      function addComment() {
+        const userName = document.getElementById('userName').value;
+        const userComment = document.getElementById('userComment').value;
+
+        const commentsContainer = document.getElementById('commentsContainer');
+
+        // Crear elementos HTML para el nuevo comentario
+        const newComment = document.createElement('div');
+        newComment.className = 'review';
+        newComment.innerHTML = `
+          <div class="userinfo">
+            <img src="img/usuario.jpeg" alt="User Avatar" class="user-avatar">
+            <div class="user-name">${userName}</div>
+          </div>
+          <p class="review-text">${userComment}</p>
+        `;
+
+        // Agregar el nuevo comentario al contenedor
+        commentsContainer.appendChild(newComment);
+
+        // Limpiar el formulario
+        document.getElementById('userName').value = '';
+        document.getElementById('userComment').value = '';
+      }
+
+      // Obtener el botón "Agregar Comentario"
+      const addCommentBtn = document.getElementById('addCommentBtn');
+      
+      // Agregar un evento de clic al botón
+      addCommentBtn.addEventListener('click', function () {
+        addComment();
+      });
+      
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
