@@ -109,8 +109,13 @@
       function addToCart() {
         const productName = document.getElementById('product-name').textContent;
         const productPriceText = document.getElementById('product-price').textContent;
-        const productPrice = parseFloat(productPriceText.replace('Precio:$', '').trim()); // Convierte la cadena a un número
-        console.log(productPrice);
+
+// Eliminar "Precio: $" y cualquier espacio adicional, luego convertir a número
+const productPrice = parseFloat(productPriceText.replace('Precio: $', '').trim());
+
+console.log('productPrice:', productPrice);
+
+
         const cartItem = {
           name: productName,
           price: productPrice,
