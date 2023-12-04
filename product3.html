@@ -23,38 +23,47 @@
 <body>
   <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="index.html"><img src="img/logo.jpeg" height="50px"></a>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html"><h3>Inicio</h3></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"><h3>Productos</h3></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"><h3>Contacto</h3></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="listaDeseos.html"><h3>lista de deseos</h3></a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="perfilU.html"><h3>Perfil de usuario</h3></a>
-          </li>
-            <li class="nav-item">
-              <a class="nav-link" href="cart.html"><h3>Carrito</h3></a>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Buscar</button>
-          </form>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html" title="index"><img src="img/logo.jpeg" height="70px"
+                    alt="logo" title="logo"></a>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html" title="Inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="productList.html" title="Productos">Productos </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" title="Contacto" data-bs-toggle="modal"
+                            data-bs-target="#contactModal">Contacto </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="listaDeseos.html">lista de deseos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="perfilU.html">Perfil de usuario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">Carrito</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Iniciar Sesion</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input id="search-bar" class="form-control me-2" type="search" placeholder="Buscar por nombre"
+                        aria-label="Search">
+                    <button class="btn btn-outline-success" type="button"
+                        onclick="buscarProductos()">Buscar</button>
+                </form>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
-      </div>
     </nav>
-  </header>
-
+</header>
   <div class="container">
     <div id="producto" class="product-container">
       <div class="product-image">
@@ -89,7 +98,7 @@
       </div>
 
       <!-- Contenedor de comentarios -->
-     
+
       <!-- Formulario para agregar comentarios -->
       <form id="commentForm">
         <h2>Agregar Comentario</h2>
@@ -107,87 +116,87 @@
         <!-- Comentarios existentes se mostrarán aquí -->
       </div>
     </div>
-    
+
 
   </div>
-  
+
   <script>
-      function addToCart() {
-        const productName = document.getElementById('product-name').textContent;
-        const productPriceText = document.getElementById('product-price').textContent;
-        const productPrice = parseFloat(productPriceText.replace('Precio: $', '').trim());
-        console.log(productPrice);
-        const cartItem = {
-          name: productName,
-          price: productPrice,
-          quantity: 1,
-        };
+    function addToCart() {
+      const productName = document.getElementById('product-name').textContent;
+      const productPriceText = document.getElementById('product-price').textContent;
+      const productPrice = parseFloat(productPriceText.replace('Precio: $', '').trim());
+      console.log(productPrice);
+      const cartItem = {
+        name: productName,
+        price: productPrice,
+        quantity: 1,
+      };
 
-        const cartMessage = document.getElementById('cart-message');
-        // Obtiene el carrito actual del localStorage
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        // Agrega el producto al carrito
-        cart.push(cartItem);
+      const cartMessage = document.getElementById('cart-message');
+      // Obtiene el carrito actual del localStorage
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      // Agrega el producto al carrito
+      cart.push(cartItem);
 
-        // Guarda el carrito actualizado en el localStorage
-        localStorage.setItem('cart', JSON.stringify(cart));
+      // Guarda el carrito actualizado en el localStorage
+      localStorage.setItem('cart', JSON.stringify(cart));
 
 
-        cartMessage.textContent = `Se ha agregado ${productName} al carrito de compras`;
-        console.log('Se ha agregado un producto al carrito');
-      }
+      cartMessage.textContent = `Se ha agregado ${productName} al carrito de compras`;
+      console.log('Se ha agregado un producto al carrito');
+    }
 
-      document.addEventListener("DOMContentLoaded", function () {
-        // Obtener el id del producto de la URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const productId = parseInt(urlParams.get('id'));
+    document.addEventListener("DOMContentLoaded", function () {
+      // Obtener el id del producto de la URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = parseInt(urlParams.get('id'));
 
-        fetch('producto.json')
-          .then(response => response.json())
-          .then(data => {
-            // Filtrar el producto por id
-            const selectedProduct = data.find(product => product.id === 3);
+      fetch('producto.json')
+        .then(response => response.json())
+        .then(data => {
+          // Filtrar el producto por id
+          const selectedProduct = data.find(product => product.id === 3);
 
-            if (selectedProduct) {
-              const productName = document.getElementById('product-name');
-              const productImage = document.getElementById('product-image');
-              const productDescription = document.getElementById('product-description');
-              const productStock = document.getElementById('product-stock');
-              const productPrice = document.getElementById('product-price');
-              
+          if (selectedProduct) {
+            const productName = document.getElementById('product-name');
+            const productImage = document.getElementById('product-image');
+            const productDescription = document.getElementById('product-description');
+            const productStock = document.getElementById('product-stock');
+            const productPrice = document.getElementById('product-price');
 
-              productName.textContent = selectedProduct.nombre;
-              productImage.src = selectedProduct.imagen;
-              productImage.alt = selectedProduct.nombre;
-              productDescription.textContent = selectedProduct.descripcion;
-              productStock.textContent = `Stock: ${selectedProduct.stock}`;
-              productPrice.textContent = `Precio: $${selectedProduct.precio.toFixed(2)}`;
-              
 
-              const addToCartBtn = document.getElementById('addToCartBtn');
-              addToCartBtn.addEventListener('click', function () {
-                addToCart(selectedProduct.nombre, selectedProduct.precio);
-              });
-            } else {
-              console.error('Producto no encontrado');
-            }
-          })
-          .catch(error => {
-            console.error('Error:', error);
-          });
-      });
+            productName.textContent = selectedProduct.nombre;
+            productImage.src = selectedProduct.imagen;
+            productImage.alt = selectedProduct.nombre;
+            productDescription.textContent = selectedProduct.descripcion;
+            productStock.textContent = `Stock: ${selectedProduct.stock}`;
+            productPrice.textContent = `Precio: $${selectedProduct.precio.toFixed(2)}`;
 
-      // Función para agregar comentarios
-      function addComment() {
-        const userName = document.getElementById('userName').value;
-        const userComment = document.getElementById('userComment').value;
 
-        const commentsContainer = document.getElementById('commentsContainer');
+            const addToCartBtn = document.getElementById('addToCartBtn');
+            addToCartBtn.addEventListener('click', function () {
+              addToCart(selectedProduct.nombre, selectedProduct.precio);
+            });
+          } else {
+            console.error('Producto no encontrado');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    });
 
-        // Crear elementos HTML para el nuevo comentario
-        const newComment = document.createElement('div');
-        newComment.className = 'review';
-        newComment.innerHTML = `
+    // Función para agregar comentarios
+    function addComment() {
+      const userName = document.getElementById('userName').value;
+      const userComment = document.getElementById('userComment').value;
+
+      const commentsContainer = document.getElementById('commentsContainer');
+
+      // Crear elementos HTML para el nuevo comentario
+      const newComment = document.createElement('div');
+      newComment.className = 'review';
+      newComment.innerHTML = `
           <div class="userinfo">
             <img src="img/usuario.jpeg" alt="User Avatar" class="user-avatar">
             <div class="user-name">${userName}</div>
@@ -195,22 +204,22 @@
           <p class="review-text">${userComment}</p>
         `;
 
-        // Agregar el nuevo comentario al contenedor
-        commentsContainer.appendChild(newComment);
+      // Agregar el nuevo comentario al contenedor
+      commentsContainer.appendChild(newComment);
 
-        // Limpiar el formulario
-        document.getElementById('userName').value = '';
-        document.getElementById('userComment').value = '';
-      }
+      // Limpiar el formulario
+      document.getElementById('userName').value = '';
+      document.getElementById('userComment').value = '';
+    }
 
-      // Obtener el botón "Agregar Comentario"
-      const addCommentBtn = document.getElementById('addCommentBtn');
-      
-      // Agregar un evento de clic al botón
-      addCommentBtn.addEventListener('click', function () {
-        addComment();
-      });
-      
+    // Obtener el botón "Agregar Comentario"
+    const addCommentBtn = document.getElementById('addCommentBtn');
+
+    // Agregar un evento de clic al botón
+    addCommentBtn.addEventListener('click', function () {
+      addComment();
+    });
+
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

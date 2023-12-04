@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDZQCEZKDN"></script>
@@ -16,16 +17,16 @@
     <!-- Agregamos FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-
         /* Estilos... */
-         /* Estilos para la tabla */
-         table {
+        /* Estilos para la tabla */
+        table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 10px;
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid #dddddd;
             text-align: left;
             padding: 8px;
@@ -34,6 +35,7 @@
         th {
             background-color: #f4a3f09c;
         }
+
         .editable-field {
             position: relative;
             display: inline-block;
@@ -44,7 +46,8 @@
             right: 0;
             top: 0;
             cursor: pointer;
-            color: #007bff; /* Color azul para el ícono de editar */
+            color: #007bff;
+            /* Color azul para el ícono de editar */
         }
 
         /* Estilos para los botones */
@@ -61,13 +64,16 @@
         button:hover {
             background-color: #0056b3;
         }
+
         /* Estilos para la sección de detalles de la cuenta */
         .detalles-cuenta {
-        text-align: left;
-        margin-top: 30px;
-        margin-left: 60px; /* Agrega un margen a la izquierda */
-        width: 80%; /* Ajusta el ancho según tus necesidades */
-}
+            text-align: left;
+            margin-top: 30px;
+            margin-left: 60px;
+            /* Agrega un margen a la izquierda */
+            width: 80%;
+            /* Ajusta el ancho según tus necesidades */
+        }
 
         .profile-picture {
             border-radius: 50%;
@@ -78,43 +84,45 @@
         }
     </style>
 </head>
+
 <body>
     <header>
-        <!-- Barra de navegación... -->
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html" title="index"><img src="img/logo.jpeg" height="70px" alt="logo"
-                        title="logo"></a>
+                <a class="navbar-brand" href="index.html" title="index"><img src="img/logo.jpeg" height="70px"
+                        alt="logo" title="logo"></a>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#" title="Inicio"><h3>Inicio</h3></a>
+                            <a class="nav-link active" aria-current="page" href="index.html" title="Inicio">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" title="Productos"><h3>Productos</h3> </a>
+                            <a class="nav-link" href="productList.html" title="Productos">Productos </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" title="Contacto"><h3>Contacto</h3></a>
+                            <a class="nav-link" title="Contacto" data-bs-toggle="modal"
+                                data-bs-target="#contactModal">Contacto </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="listaDeseos.html"><h3>lista de deseos</h3></a>
+                            <a class="nav-link" href="listaDeseos.html">lista de deseos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="perfilU.html"><h3>Perfil de usuario</h3></a>
+                            <a class="nav-link" href="perfilU.html">Perfil de usuario</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="cart.html"><h3>Carrito</h3></a>
+                            <a class="nav-link" href="cart.html">Carrito</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Iniciar Sesion</a>
                         </li>
                     </ul>
-                   
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Buscar</button>
-                    </form>
                 </div>
-                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
-            
         </nav>
     </header>
     <br>
@@ -151,14 +159,21 @@
 
                     <!-- Formulario para editar detalles de la cuenta -->
                     <form id="formDetallesCuenta">
-                        <p><strong>Nombre:</strong> <span id="nombreUsuario" class="editable-field" contenteditable="true"></span></p>
-                        <p><strong>Correo:</strong> <span id="correoUsuario" class="editable-field" contenteditable="true"></span></p>
-                        <p><strong>Teléfono:</strong> <span id="telefonoUsuario" class="editable-field" contenteditable="true"></span></p>
-                        <p><strong>Dirección:</strong> <span id="direccionUsuario" class="editable-field" contenteditable="true"></span></p>
-                        <p><strong>Código Postal:</strong> <span id="cpUsuario" class="editable-field" contenteditable="true"></span></p>
-                        <p><strong>Fecha de Nacimiento:</strong> <span id="fechaNacimientoUsuario" class="editable-field" contenteditable="true"></span></p>
-                        <p><strong>País/Región:</strong> <span id="paisRegionUsuario" class="editable-field" contenteditable="true"></span></p>
-                        
+                        <p><strong>Nombre:</strong> <span id="nombreUsuario" class="editable-field"
+                                contenteditable="true"></span></p>
+                        <p><strong>Correo:</strong> <span id="correoUsuario" class="editable-field"
+                                contenteditable="true"></span></p>
+                        <p><strong>Teléfono:</strong> <span id="telefonoUsuario" class="editable-field"
+                                contenteditable="true"></span></p>
+                        <p><strong>Dirección:</strong> <span id="direccionUsuario" class="editable-field"
+                                contenteditable="true"></span></p>
+                        <p><strong>Código Postal:</strong> <span id="cpUsuario" class="editable-field"
+                                contenteditable="true"></span></p>
+                        <p><strong>Fecha de Nacimiento:</strong> <span id="fechaNacimientoUsuario"
+                                class="editable-field" contenteditable="true"></span></p>
+                        <p><strong>País/Región:</strong> <span id="paisRegionUsuario" class="editable-field"
+                                contenteditable="true"></span></p>
+
                         <!-- Botón para guardar cambios -->
                         <button type="button" onclick="guardarCambios()">Guardar</button>
                     </form>
@@ -170,7 +185,7 @@
                         <input type="text" id="nuevaDireccion" name="nuevaDireccion">
                         <button type="button" onclick="agregarDireccion()">+ Dirección</button>
                     </form>
-                    
+
                     <!-- Mostrar la dirección agregada -->
                     <ul id="listaDirecciones"></ul>
                 </div>
@@ -246,7 +261,7 @@
             alert("Cambios guardados");
         }
 
-        
+
         // Lista de direcciones
         const direcciones = [];
 
@@ -280,6 +295,7 @@
         }
     </script>
 
-</script>
+    </script>
 </body>
+
 </html>
