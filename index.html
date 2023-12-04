@@ -23,6 +23,13 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <style>
+        .filter {
+            text-align: center;
+            width: 100%;
+            z-index: 1000000;
+            margin-top: 6%;
+        }
+
         .cookie-consent-container {
             position: fixed;
             bottom: 0;
@@ -96,105 +103,144 @@
         <h2 style="text-align:center;">Los Mejores Amigurumis están aquí</h2>
     </section>
 
-    <div class="container">
-        <div class="row row-cols-1 row-cols-md-3 g-4" id="product-container">
-            <!-- El contenido de las tarjetas se cargará aquí con JavaScript -->
-        </div>
-    </div>
+    <div class="filter">
+        <div id="filters" class="mb-4">
+            <label for="sort" class="me-2">Ordenar por:</label>
+            <select id="sort" class="me-2">
+                <option value="default">Predeterminado</option>
+                <option value="priceLowToHigh">Precio (bajo a alto)</option>
+                <option value="priceHighToLow">Precio (alto a bajo)</option>
+                <option value="name">Nombre (A-Z)</option>
+                <option value="nameDesc">Nombre (Z-A)</option>
+            </select>
 
-    <footer class="bg-dark text-light py-5">
+            <button class="btn btn-outline-success" onclick="applyFilters()">Aplicar filtros</button>
+        </div>
+
         <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h4>Nuestro Emprendimiento</h4>
-                    <p>Somos un pequeño emprendimiento dedicado a la creación y venta de amigurumis. Nuestros muñecos
-                        están hechos con amor y dedicación, utilizando materiales de alta calidad.</p>
-                </div>
-                <div class="col-md-4">
-                    <h4>Variedad de Amigurumis</h4>
-                    <p>Ofrecemos una amplia variedad de amigurumis, desde personajes de dibujos animados y videojuegos
-                        hasta animales, objetos y flores. También podemos crear amigurumis personalizados según sus
-                        necesidades.</p>
-                </div>
-                <div class="col-md-4">
-                    <h4>Síguenos en Redes Sociales</h4>
-                    <p>Visítanos en nuestras redes sociales:</p>
-                    <a href="https://www.facebook.com/profile.php?id=61553482133702" target="_blank"
-                        class="btn btn-outline-light" title="Facebook">
-                        <img src="img/facebook.png" class="img-fluid" alt="Facebook" title="Facebook"
-                            style="width: 30px;">
-                        Facebook
-                    </a>
-                    <a href="https://instagram.com/tanyroo7?igshid=OGQ5ZDc2ODk2ZA==" target="_blank"
-                        class="btn btn-outline-light" title="Instagram">
-                        <img src="img/instagram.png" class="img-fluid" alt="Instagram" title="Instagram"
-                            style="width: 30px;">
-                        Instagram
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div id="cookieConsentContainer" class="cookie-consent-container">
-            <div class="cookie-consent-content">
-                <p>Esta página utiliza cookies para mejorar la experiencia de usuario. Por favor, acepta nuestra <a
-                        href="#">Política de Cookies</a> para continuar.</p>
-                <button id="acceptCookieConsent" class="btn btn-primary">Aceptar</button>
+            <div class="row row-cols-1 row-cols-md-3 g-4" id="product-container">
+                <!-- El contenido de las tarjetas se cargará aquí con JavaScript -->
             </div>
         </div>
 
-    </footer>
-
-    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="contactModalLabel">Redes Sociales</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <footer class="bg-dark text-light py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4>Nuestro Emprendimiento</h4>
+                        <p>Somos un pequeño emprendimiento dedicado a la creación y venta de amigurumis. Nuestros
+                            muñecos
+                            están hechos con amor y dedicación, utilizando materiales de alta calidad.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Variedad de Amigurumis</h4>
+                        <p>Ofrecemos una amplia variedad de amigurumis, desde personajes de dibujos animados y
+                            videojuegos
+                            hasta animales, objetos y flores. También podemos crear amigurumis personalizados según sus
+                            necesidades.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Síguenos en Redes Sociales</h4>
+                        <p>Visítanos en nuestras redes sociales:</p>
+                        <a href="https://www.facebook.com/profile.php?id=61553482133702" target="_blank"
+                            class="btn btn-outline-light" title="Facebook">
+                            <img src="img/facebook.png" class="img-fluid" alt="Facebook" title="Facebook"
+                                style="width: 30px;">
+                            Facebook
+                        </a>
+                        <a href="https://instagram.com/tanyroo7?igshid=OGQ5ZDc2ODk2ZA==" target="_blank"
+                            class="btn btn-outline-light" title="Instagram">
+                            <img src="img/instagram.png" class="img-fluid" alt="Instagram" title="Instagram"
+                                style="width: 30px;">
+                            Instagram
+                        </a>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <!-- Contenido de tus redes sociales -->
-                    <a href="https://www.facebook.com/profile.php?id=61553482133702" target="_blank"
-                        class="btn btn-outline-primary" title="Facebook">
-                        <img src="img/facebook.png" class="img-fluid" alt="Facebook" title="Facebook"
-                            style="width: 30px;">
-                        Facebook
-                    </a>
-                    <a href="https://instagram.com/tanyroo7?igshid=OGQ5ZDc2ODk2ZA==" target="_blank"
-                        class="btn btn-outline-primary" title="Instagram">
-                        <img src="img/instagram.png" class="img-fluid" alt="Instagram" title="Instagram"
-                            style="width: 30px;">
-                        Instagram
-                    </a>
+            </div>
+            <div id="cookieConsentContainer" class="cookie-consent-container">
+                <div class="cookie-consent-content">
+                    <p>Esta página utiliza cookies para mejorar la experiencia de usuario. Por favor, acepta nuestra <a
+                            href="#">Política de Cookies</a> para continuar.</p>
+                    <button id="acceptCookieConsent" class="btn btn-primary">Aceptar</button>
+                </div>
+            </div>
+
+        </footer>
+
+        <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="contactModalLabel">Redes Sociales</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Contenido de tus redes sociales -->
+                        <a href="https://www.facebook.com/profile.php?id=61553482133702" target="_blank"
+                            class="btn btn-outline-primary" title="Facebook">
+                            <img src="img/facebook.png" class="img-fluid" alt="Facebook" title="Facebook"
+                                style="width: 30px;">
+                            Facebook
+                        </a>
+                        <a href="https://instagram.com/tanyroo7?igshid=OGQ5ZDc2ODk2ZA==" target="_blank"
+                            class="btn btn-outline-primary" title="Instagram">
+                            <img src="img/instagram.png" class="img-fluid" alt="Instagram" title="Instagram"
+                                style="width: 30px;">
+                            Instagram
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script>
-        let productos;
+        <script>
+            let productos;
+            let filteredProducts = [];
 
-        async function cargarProductos() {
-            const container = document.getElementById('product-container');
+            function applyFilters() {
+                // Obtiene la opción de ordenación seleccionada
+                const sortOption = document.getElementById('sort').value;
 
-            try {
-                const response = await fetch('producto.json');
-                productos = await response.json();
+                // Ordena los productos filtrados según la opción seleccionada
+                if (sortOption === 'priceLowToHigh') {
+                    filteredProducts.sort((a, b) => a.precio - b.precio);
+                } else if (sortOption === 'priceHighToLow') {
+                    filteredProducts.sort((a, b) => b.precio - a.precio);
+                } else if (sortOption === 'name') {
+                    filteredProducts.sort((a, b) => a.nombre.localeCompare(b.nombre));
+                } else if (sortOption === 'nameDesc') {
+                    filteredProducts.sort((a, b) => b.nombre.localeCompare(a.nombre));
+                }
 
-                // Mostrar todos los productos al cargar la página
-                mostrarProductos(productos, container);
-            } catch (error) {
+                // Muestra los productos filtrados y ordenados
+                mostrarProductos(filteredProducts);
+            }
+
+
+            async function cargarProductos() {
+                const container = document.getElementById('product-container');
+
+                try {
+                    const response = await fetch('producto.json');
+                    productos = await response.json();
+
+                    // Mostrar todos los productos al cargar la página
+                    mostrarProductos(productos);
+                    filteredProducts = [...productos]; // Copia inicial de todos los productos para filtrar
+                    applyFilters(); // Aplica los filtros iniciales
+                } catch (error) {
                 console.error('Error al cargar productos:', error);
             }
-        }
+            }
 
-        function mostrarProductos(productos, container) {
-            // Función para mostrar productos, similar a tu implementación original
-            container.innerHTML = ''; // Limpiar contenido existente
+            function mostrarProductos(productos) {
+                const container = document.getElementById('product-container');
+                container.innerHTML = ''; // Limpia el contenedor
 
-            productos.forEach(producto => {
-                const card = document.createElement('div');
-                card.className = 'col';
-                card.innerHTML = `
+                productos.forEach(producto => {
+                    const card = document.createElement('div');
+                    card.className = 'col';
+                    card.innerHTML = `
                 <div class="card h-100"> <!-- Agregar clase h-100 para establecer altura máxima -->
                         <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
                         <div class="card-body d-flex flex-column"> <!-- Agregar clases para flexbox -->
@@ -211,69 +257,69 @@
                     </div>
                 `;
 
-                container.appendChild(card);
+                    container.appendChild(card);
+                });
+            }
+
+            function buscarProductos() {
+                const container = document.getElementById('product-container');
+                const searchBar = document.getElementById('search-bar');
+                const searchTerm = searchBar.value.toLowerCase().trim();
+
+                const resultados = productos.filter(producto =>
+                    producto.nombre.toLowerCase().includes(searchTerm)
+                );
+
+                mostrarProductos(resultados);
+            }
+
+            function handleCookieConsent() {
+                let consent = localStorage.getItem('cookieConsent');
+                if (!consent) {
+                    document.getElementById('cookieConsentContainer').style.display = 'block';
+                }
+
+                document.getElementById('acceptCookieConsent').onclick = function () {
+                    localStorage.setItem('cookieConsent', 'true');
+                    document.getElementById('cookieConsentContainer').style.display = 'none';
+                };
+            }
+
+            // Usar addEventListener para cargar productos y manejar la alerta de cookies
+            window.addEventListener('load', function () {
+                cargarProductos();
+                handleCookieConsent();
+
             });
-        }
 
-        function buscarProductos() {
-            const container = document.getElementById('product-container');
-            const searchBar = document.getElementById('search-bar');
-            const searchTerm = searchBar.value.toLowerCase().trim();
 
-            const resultados = productos.filter(producto =>
-                producto.nombre.toLowerCase().includes(searchTerm)
-            );
+            let listaDeseos = []; // Array para almacenar productos en la lista de deseos
 
-            mostrarProductos(resultados, container);
-        }
+            function agregarAListaDeseos(id) {
+                const productoSeleccionado = productos.find(producto => producto.id === id);
 
-        function handleCookieConsent() {
-            let consent = localStorage.getItem('cookieConsent');
-            if (!consent) {
-                document.getElementById('cookieConsentContainer').style.display = 'block';
+                if (productoSeleccionado) {
+                    // Añadir el producto a la lista de deseos
+                    listaDeseos.push(productoSeleccionado);
+                    alert('Producto agregado a la Lista de Deseos');
+
+                    // Actualizar localStorage
+                    localStorage.setItem('listaDeseos', JSON.stringify(listaDeseos));
+                } else {
+                    alert('Error: No se pudo encontrar el producto.');
+                }
             }
 
-            document.getElementById('acceptCookieConsent').onclick = function () {
-                localStorage.setItem('cookieConsent', 'true');
-                document.getElementById('cookieConsentContainer').style.display = 'none';
-            };
-        }
 
-        // Usar addEventListener para cargar productos y manejar la alerta de cookies
-        window.addEventListener('load', function () {
-            cargarProductos();
-            handleCookieConsent();
-
-        });
-
-
-        let listaDeseos = []; // Array para almacenar productos en la lista de deseos
-
-        function agregarAListaDeseos(id) {
-            const productoSeleccionado = productos.find(producto => producto.id === id);
-
-            if (productoSeleccionado) {
-                // Añadir el producto a la lista de deseos
-                listaDeseos.push(productoSeleccionado);
-                alert('Producto agregado a la Lista de Deseos');
-
-                // Actualizar localStorage
+            function verListaDeseos() {
+                // Guardar la lista de deseos en el almacenamiento local para recuperarla en la otra página
                 localStorage.setItem('listaDeseos', JSON.stringify(listaDeseos));
-            } else {
-                alert('Error: No se pudo encontrar el producto.');
+                console.log('Lista de deseos:', listaDeseos); // Agregamos un log para verificar la lista de deseos en la consola
+                // Redireccionar a la página de lista de deseos
+                console.log('Redirigiendo a listaDeseos.html');
+                window.location.href = 'listaDeseos.html';
             }
-        }
-
-
-        function verListaDeseos() {
-            // Guardar la lista de deseos en el almacenamiento local para recuperarla en la otra página
-            localStorage.setItem('listaDeseos', JSON.stringify(listaDeseos));
-            console.log('Lista de deseos:', listaDeseos); // Agregamos un log para verificar la lista de deseos en la consola
-            // Redireccionar a la página de lista de deseos
-            console.log('Redirigiendo a listaDeseos.html');
-            window.location.href = 'listaDeseos.html';
-        }
-    </script>
+        </script>
 </body>
 
 </html>
