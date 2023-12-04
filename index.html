@@ -23,6 +23,7 @@
     </style>
 </head>
 
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -151,7 +152,11 @@
                             <p class="card-text">Stock: ${producto.stock}</p>
                             <p class="card-text">Precio: $${producto.precio.toFixed(2)}</p>
                             <a href="product${producto.id}.html" class="btn btn-primary mt-auto" target="_blank">Ver Detalles</a> <!-- Agregar clase mt-auto para margen superior automático -->
-                        </div>
+                           <br>
+                            <button class="btn btn-outline-danger" onclick="agregarAListaDeseos(${producto.id})">
+                            ❤️ Agregar a Lista de Deseos
+                            </button>
+                            </div>
                     </div>
                 `;
 
@@ -173,6 +178,32 @@
 
         // Llama a la función para cargar productos al cargar la página
         window.onload = cargarProductos;
+        let listaDeseos = []; // Array para almacenar productos en la lista de deseos
+
+        function agregarAListaDeseos(id) {
+    const productoSeleccionado = productos.find(producto => producto.id === id);
+
+    if (productoSeleccionado) {
+        // Añadir el producto a la lista de deseos
+        listaDeseos.push(productoSeleccionado);
+        alert('Producto agregado a la Lista de Deseos');
+        
+        // Actualizar localStorage
+        localStorage.setItem('listaDeseos', JSON.stringify(listaDeseos));
+    } else {
+        alert('Error: No se pudo encontrar el producto.');
+    }
+}
+
+
+        function verListaDeseos() {
+    // Guardar la lista de deseos en el almacenamiento local para recuperarla en la otra página
+    localStorage.setItem('listaDeseos', JSON.stringify(listaDeseos));
+    console.log('Lista de deseos:', listaDeseos); // Agregamos un log para verificar la lista de deseos en la consola
+    // Redireccionar a la página de lista de deseos
+    console.log('Redirigiendo a listaDeseos.html');
+    window.location.href = 'listaDeseos.html';
+}
     </script>
 </body>
 

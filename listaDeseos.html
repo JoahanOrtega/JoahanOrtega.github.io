@@ -1,138 +1,130 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDZQCEZKDN"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDZQCEZKDN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-    gtag('config', 'G-PDZQCEZKDN');
-  </script>
+        gtag('config', 'G-PDZQCEZKDN');
+    </script>
 
-  <title>Lista de Deseos</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <style>
-       
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        th, td {
-            border: 1px solid #e3b1eeef;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #e3b1eeef;
-        }
-
-        img {
-            border-radius: 50%; /* Hace que las imágenes sean redondas */
-        }
-
-        .eliminar-btn {
-            border: none;
-            border-radius: 50%; /* Hace que el botón sea redondo */
-            background-color: #3498db; /* Color azul */
-            color: #fff; /* Texto en color blanco */
-            padding: 10px 15px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <header> <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html" title="index"><img src="img/logo.jpeg" height="70px" alt="logo"
-                    title="logo"></a>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#" title="Inicio"><h3>Inicio</h3></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" title="Productos"><h3>Productos</h3> </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" title="Contacto"><h3>Contacto</h3></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="listaDeseos.html"><h3>lista de deseos</h3></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="cart.html"><h3>Carrito</h3></a>
-                    </li>
-                </ul>
-               
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
-            </div>
-            
-        </div>
+    <title>Lista de Deseos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         
-    </nav></header>
+    </head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html" title="index"><img src="img/logo.jpeg" height="70px" alt="logo"
+                        title="logo"></a>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#" title="Inicio"><h3>Inicio</h3></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" title="Productos"><h3>Productos</h3> </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" title="Contacto"><h3>Contacto</h3></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="listaDeseos.html"><h3>lista de deseos</h3></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cart.html"><h3>Carrito</h3></a>
+                        </li>
+                    </ul>
+
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    </form>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        <h1 style="text-align: center;">Lista de Deseos</h1>
+    </section>
+
+    <div class="container">
+        <!-- Agrega un contenedor con el ID 'wishlist-container' para mostrar los productos -->
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="wishlist-container">
+            <!-- El contenido de los productos en la lista de deseos se cargará aquí con JavaScript -->
+        </div>
+    </div>
+
   
-    
-    <table id="tablaDeseos">
-        <thead>
-            <tr>
-                <th>Imagen</th>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Descripción</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody id="listaDeseos">
-            <!-- Aquí se cargarán los elementos de la lista de deseos dinámicamente con JavaScript -->
-        </tbody>
-    </table>
+
+    <!-- Bootstrap JS y Popper.js, asegúrate de incluirlos si no lo has hecho -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Obtener la referencia al elemento tbody de la tabla
-            const listaDeseosTable = document.getElementById("listaDeseos");
+      // Cambiamos de const a let para permitir la reasignación de valores
+    let listaDeseos = JSON.parse(localStorage.getItem('listaDeseos')) || [];
 
-            // Hacer una solicitud para obtener los datos del archivo JSON
-            fetch("deseos.json")
-                .then(response => response.json())
-                .then(data => {
-                    // Iterar sobre los objetos en el JSON y crear filas de la tabla en el HTML
-                    data.forEach(deseo => {
-                        // Crear una fila para cada producto
-                        const productRow = document.createElement("tr");
+// Función para mostrar productos en la lista de deseos
+function mostrarListaDeseos() {
+    const container = document.getElementById('wishlist-container');
 
-                        // Crear la estructura HTML de la fila
-                        productRow.innerHTML = `
-                            <td><img src="${deseo.imagen}" alt="${deseo.nombre}" title="${deseo.nombre}" height="50px"></td>
-                            <td>${deseo.nombre}</td>
-                            <td>$${deseo.precio.toFixed(2)}</td>
-                            <td>${deseo.descripcion}</td>
-                            <td><button class="eliminar-btn" onclick="eliminarProducto(this)">Eliminar</button></td>
-                        `;
+    // Limpiar contenido existente
+    container.innerHTML = '';
 
-                        // Agregar la fila a la tabla
-                        listaDeseosTable.appendChild(productRow);
-                    });
-                })
-                .catch(error => console.error("Error al cargar el JSON:", error));
-        });
+    listaDeseos.forEach(producto => {
+        const card = document.createElement('div');
+        card.className = 'col';
+        card.innerHTML = `
+            <div class="card h-100">
+                <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+                <div class="card-body">
+                    <h5 class="card-title">${producto.nombre}</h5>
+                    <p class="card-text">${producto.descripcion}</p>
+                    <p class="card-text">Stock: ${producto.stock}</p>
+                    <p class="card-text">Precio: $${producto.precio.toFixed(2)}</p>
+                    
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary btn-sm eliminar-btn" onclick="eliminarDeListaDeseos(${producto.id})">Eliminar</button>
+                        <button class="btn btn-primary btn-sm comprar-btn" onclick="comprarProducto(${producto.id})">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        `;
 
-        function eliminarProducto(button) {
-            // Obtener la fila actual
-            const row = button.closest("tr");
+        container.appendChild(card);
+    });
+}
 
-            // Eliminar la fila
-            row.remove();
-        }
+// Llama a la función para mostrar productos en la lista de deseos al cargar la página
+window.onload = mostrarListaDeseos;
+
+// Cambiamos a una función de flecha para garantizar el contexto correcto
+const eliminarDeListaDeseos = (id) => {
+    // Filtra la lista de deseos para excluir el producto con el ID proporcionado
+    listaDeseos = listaDeseos.filter(producto => producto.id !== id);
+
+    // Actualiza la lista de deseos en el almacenamiento local
+    localStorage.setItem('listaDeseos', JSON.stringify(listaDeseos));
+
+    // Vuelve a mostrar la lista de deseos actualizada
+    mostrarListaDeseos();
+}
+
+// Función para comprar productos
+function comprarProducto(id) {
+ //...
+}
     </script>
 </body>
+
 </html>
