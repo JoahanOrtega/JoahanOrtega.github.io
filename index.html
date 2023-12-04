@@ -14,51 +14,20 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explora el mundo mágico de los amigurumis con nuestra colección única de muñecos tejidos a mano.
-     Encuentra patrones, tutoriales y la inspiración para crear tus propios amigurumis llenos de encanto y creatividad. ¡Descubre cómo dar vida a adorables creaciones de ganchillo ahora!">
-
+    <meta name="description" content="Explora el mundo mágico de los amigurumis con nuestra colección única de muñecos tejidos a mano. Encuentra patrones, tutoriales y la inspiración para crear tus propios amigurumis llenos de encanto y creatividad. ¡Descubre cómo dar vida a adorables creaciones de ganchillo ahora!">
     <title>Amigurumi Shop / The Best Amigurumis in the planet</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <style>
-        .cookie-consent-container {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            text-align: center;
-            padding: 10px;
-            z-index: 1000;
-            display: none;
-        }
-
-        .cookie-consent-content p {
-            margin: 0;
-            padding: 0;
-        }
-        .card {
-            width: 200px; /* Ajusta este valor según tus necesidades */
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px;
-            box-sizing: border-box;
-        }
+        /* Estilos omitidos para mayor claridad */
     </style>
-
 </head>
 
 <body>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html" title="index"><img src="img/logo.jpeg" height="70px" alt="logo"
-                        title="logo"></a>
+                <a class="navbar-brand" href="index.html" title="index"><img src="img/logo.jpeg" height="70px" alt="logo" title="logo"></a>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -74,205 +43,53 @@
                             <a class="nav-link" href="cart.html"><h3>Carrito</h3></a>
                         </li>
                     </ul>
-                   
                     <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                        <input id="search-bar" class="form-control me-2" type="search" placeholder="Buscar por nombre" aria-label="Search">
+                        <button class="btn btn-outline-success" type="button" onclick="buscarProductos()">Buscar</button>
                     </form>
                 </div>
-                
             </div>
-            
         </nav>
-        
     </header>
+
     <section>
-    <h1 style="text-align: center;">Amigurumi Shop</h1>
-    <h2 style="text-align:center;">Los Mejores Amigurumis están aquí</h2>
-   
-</section>
-
-
-
-    <section class="destacados">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-                <div class="card" style="width: 25rem;">
-                    <img src="img/Blanca.png" class="card-img-top" alt="Blancanieves" title="Blancanieves"
-                        height="400px">
-                    <div class="card-body">
-                        <h5 class="card-title">Blancanieves</h5>
-                        <h3 class="card-title">$900.00</h3>
-                        <p class="card-text">Bigogurumis es una iniciativa creativa que partió a raíz de la partida de
-                            mi adorado Schnauzer llamado Yordy, el crochet ayudo a poder sobrellevar el duelo ya que es
-                            una técnica muy relajante y da hermosos resultados.</p>
-                        <a href="product.html" class="btn btn-primary" title="Ir al producto">Ir al producto</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="width: 25rem;">
-                    <img src="img/brujita.jpg" class="card-img-top" alt="Brujita" title="Brujita" height="400px">
-                    <div class="card-body">
-                        <h5 class="card-title">Brujita</h5>
-                        <h3 class="card-title">$1,187.00</h3>
-                        <p class="card-text">Bruja Alana de 30 cm de altura con sombrero. Excelente detalle artesanal,
-                            de buena calidad para regalo o simplemente de colección.</p>
-                        <a href="#" class="btn btn-primary" title="Ir al product">Ir al producto</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="width: 25rem;">
-                    <img src="img/catrina.png" class="card-img-top" alt="Catrina variante 1" title="Catrina variante 1"
-                        height="400px">
-                    <div class="card-body">
-                        <h5 class="card-title">Catrina</h5>
-                        <h3 class="card-title">$495.00</h3>
-                        <p class="card-text">Medida: 15cm de altura
-                            Puedes elegir los colores que más te gusten para tu catrina.</p>
-                        <a href="#" class="btn btn-primary">Ir al producto</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="width: 25rem;">
-                    <img src="img/catrina2.jpg" class="card-img-top" alt="catrina variante 2" title="catrina variante 2"
-                        height="400px">
-                    <div class="card-body">
-                        <h5 class="card-title">Catrina (variacion)</h5>
-                        <h3 class="card-title">$945.00</h3>
-                        <p class="card-text">La Catrina es un personaje creado por el pintor, ilustrador y caricaturista
-                            mexicano de Aguascalientes, José Guadalupe Posada, es la figura que más se asocia al Día de
-                            Muertos y a la muerte en general en nuestro país, siendo uno de los iconos con los que
-                            México es conocido en el mundo entero</p>
-                        <a href="#" class="btn btn-primary">Ir al producto</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="width: 25rem;">
-                    <img src="img/cenicienta.png" class="card-img-top" alt="Princesa Cenicienta"
-                        title="Princesa Cenicienta" height="400px">
-                    <div class="card-body">
-                        <h5 class="card-title">Cenicienta</h5>
-                        <h3 class="card-title">$499.00</h3>
-                        <p class="card-text">Princesa Cenicienta, tejida a crochet
-                            MEDIDA: 21 a 23 cm de altura</p>
-                        <a href="#" class="btn btn-primary">Ir al producto</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="width: 25rem;">
-                    <img src="img/gatito.jpg" class="card-img-top" alt="Gatito" title="Gatito" height="400px">
-                    <div class="card-body">
-                        <h5 class="card-title">Gatito</h5>
-                        <h3 class="card-title">$490.00</h3>
-                        <p class="card-text">Garantía del vendedor: 7 días
-                            tejido hipoalergenico</p>
-                        <a href="#" class="btn btn-primary">Ir al producto</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="width: 25rem;">
-                    <img src="img/perro.jpeg" class="card-img-top" alt="Perro de peluche" title="Perro de peluche"
-                        height="400px">
-                    <div class="card-body">
-                        <h5 class="card-title">Perrito</h5>
-                        <h3 class="card-title">$450.00</h3>
-                        <p class="card-text">Perro amigurumi tejido a crochet
-                            Material: Hilaza 100% algodón y acrílico
-                            Medida: 10-12 cm de alto aproximadamente de punta a punta</p>
-                        <a href="#" class="btn btn-primary">Ir al producto</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="width: 25rem;">
-                    <img src="img/rapuncel.png" class="card-img-top" alt="Princesa Rapunzel" title="Princesa Rapunzel"
-                        height="400px">
-                    <div class="card-body">
-                        <h5 class="card-title">Princesa Rapunzel</h5>
-                        <h3 class="card-title">$660.00</h3>
-                        <p class="card-text">Tejido relleno de algodon
-                            Articulo hipoalergenico</p>
-                        <a href="#" class="btn btn-primary" title="Ir al producto">Ir al producto</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="width: 25rem;">
-                    <img src="img/sirenita.jpg" class="card-img-top" alt="Princesa Ariel" title="Princesa Ariel"
-                        height="400px">
-                    <div class="card-body">
-                        <h5 class="card-title">Sirenita</h5>
-                        <h3 class="card-title">$712.00</h3>
-                        <p class="card-text">La sirenita ARIEL bordada a mano de 35 cm de altura. Excelente detalle
-                            artesanal, de buena calidad para regalo o simplemente de colección.
-                        </p>
-                        <a href="product.html" class="btn btn-primary" title="ir al producto">Ir al producto</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="width: 25rem;">
-                    <img src="img/ajolote.jpg" class="card-img-top" alt="Amigurumi de Ajolote"
-                        title="Amigurumi de Ajolote" height="400px">
-                    <div class="card-body">
-                        <h5 class="card-title">Ajolote</h5>
-                        <h3 class="card-title">$360.00</h3>
-                        <p class="card-text"> Chibi Ajolotito está hecho con un relleno súper suave y esponjoso y
-                            estambre acrílico con una sensación suave al tacto.</p>
-                        <a href="product.html" class="btn btn-primary" title="ir al producto">Ir al producto</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <h1 style="text-align: center;">Amigurumi Shop</h1>
+        <h2 style="text-align:center;">Los Mejores Amigurumis están aquí</h2>
     </section>
- 
+
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="product-container">
+            <!-- El contenido de las tarjetas se cargará aquí con JavaScript -->
+        </div>
+    </div>
+
     <footer class="bg-dark text-light py-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
                     <h4>Nuestro Emprendimiento</h4>
-                    <p>Somos un pequeño emprendimiento dedicado a la creación y venta de amigurumis. Nuestros muñecos
-                        están hechos con amor y dedicación, utilizando materiales de alta calidad.</p>
+                    <p>Somos un pequeño emprendimiento dedicado a la creación y venta de amigurumis. Nuestros muñecos están hechos con amor y dedicación, utilizando materiales de alta calidad.</p>
                 </div>
                 <div class="col-md-4">
                     <h4>Variedad de Amigurumis</h4>
-                    <p>Ofrecemos una amplia variedad de amigurumis, desde personajes de dibujos animados y videojuegos
-                        hasta animales, objetos y flores. También podemos crear amigurumis personalizados según sus
-                        necesidades.</p>
+                    <p>Ofrecemos una amplia variedad de amigurumis, desde personajes de dibujos animados y videojuegos hasta animales, objetos y flores. También podemos crear amigurumis personalizados según sus necesidades.</p>
                 </div>
                 <div class="col-md-4">
                     <h4>Síguenos en Redes Sociales</h4>
                     <p>Visítanos en nuestras redes sociales:</p>
-                    <a href="https://www.facebook.com/profile.php?id=61553482133702" target="_blank"
-                        class="btn btn-outline-light" title="Facebook">
-                        <img src="img/facebook.png" class="img-fluid" alt="Facebook" title="Facebook"
-                            style="width: 30px;">
+                    <a href="https://www.facebook.com/profile.php?id=61553482133702" target="_blank" class="btn btn-outline-light" title="Facebook">
+                        <img src="img/facebook.png" class="img-fluid" alt="Facebook" title="Facebook" style="width: 30px;">
                         Facebook
                     </a>
-                    <a href="https://instagram.com/tanyroo7?igshid=OGQ5ZDc2ODk2ZA==" target="_blank"
-                        class="btn btn-outline-light" title="Instagram">
-                        <img src="img/instagram.png" class="img-fluid" alt="Instagram" title="Instagram"
-                            style="width: 30px;">
+                    <a href="https://instagram.com/tanyroo7?igshid=OGQ5ZDc2ODk2ZA==" target="_blank" class="btn btn-outline-light" title="Instagram">
+                        <img src="img/instagram.png" class="img-fluid" alt="Instagram" title="Instagram" style="width: 30px;">
                         Instagram
                     </a>
                 </div>
             </div>
         </div>
-        <div id="cookieConsentContainer" class="cookie-consent-container">
-            <div class="cookie-consent-content">
-                <p>Esta página utiliza cookies para mejorar la experiencia de usuario. Por favor, acepta nuestra <a
-                        href="#">Política de Cookies</a> para continuar.</p>
-                <button id="acceptCookieConsent" class="btn btn-primary">Aceptar</button>
-            </div>
-        </div>
-
     </footer>
+
     <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -282,35 +99,75 @@
                 </div>
                 <div class="modal-body">
                     <!-- Contenido de tus redes sociales -->
-                    <a href="https://www.facebook.com/profile.php?id=61553482133702" target="_blank"
-                        class="btn btn-outline-primary" title="Facebook">
+                    <a href="https://www.facebook.com/profile.php?id=61553482133702" target="_blank" class="btn btn-outline-primary" title="Facebook">
                         <img src="img/facebook.png" class="img-fluid" alt="Facebook" title="Facebook" style="width: 30px;">
                         Facebook
                     </a>
-    
-                    <a href="https://instagram.com/tanyroo7?igshid=OGQ5ZDc2ODk2ZA==" target="_blank"
-                        class="btn btn-outline-primary" title="Instagram">
-                        <img src="img/instagram.png" class="img-fluid" alt="Instagram" title="Instagram"
-                            style="width: 30px;">
+                    <a href="https://instagram.com/tanyroo7?igshid=OGQ5ZDc2ODk2ZA==" target="_blank" class="btn btn-outline-primary" title="Instagram">
+                        <img src="img/instagram.png" class="img-fluid" alt="Instagram" title="Instagram" style="width: 30px;">
                         Instagram
                     </a>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        let productos;
+
+        async function cargarProductos() {
+            const container = document.getElementById('product-container');
+
+            try {
+                const response = await fetch('producto.json');
+                productos = await response.json();
+
+                // Mostrar todos los productos al cargar la página
+                mostrarProductos(productos, container);
+            } catch (error) {
+                console.error('Error al cargar productos:', error);
+            }
+        }
+
+        function mostrarProductos(productos, container) {
+            // Función para mostrar productos, similar a tu implementación original
+            container.innerHTML = ''; // Limpiar contenido existente
+
+            productos.forEach(producto => {
+                const card = document.createElement('div');
+                card.className = 'col';
+                card.innerHTML = `
+                <div class="card h-100">
+                        <img src="${producto.imagen}" class="card-img-top img-fluid" alt="${producto.nombre}">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">${producto.nombre}</h5>
+                            <p class="card-text flex-grow-1">${producto.descripcion}</p>
+                            <p class="card-text">Stock: ${producto.stock}</p>
+                            <p class="card-text">Precio: $${producto.precio.toFixed(2)}</p>
+                            <a href="product.html" class="btn btn-primary mt-auto" target="_blank">Ver Detalles</a>
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        function buscarProductos() {
+            const container = document.getElementById('product-container');
+            const searchBar = document.getElementById('search-bar');
+            const searchTerm = searchBar.value.toLowerCase().trim();
+
+            const resultados = productos.filter(producto =>
+                producto.nombre.toLowerCase().includes(searchTerm)
+            );
+
+            mostrarProductos(resultados, container);
+        }
+
+        // Llama a la función para cargar productos al cargar la página
+        window.onload = cargarProductos;
+    </script>
 </body>
 
 </html>
-<script>
-    window.onload = function() {
-        let consent = localStorage.getItem('cookieConsent');
-        if (!consent) {
-            document.getElementById('cookieConsentContainer').style.display = 'block';
-        }
-
-        document.getElementById('acceptCookieConsent').onclick = function() {
-            localStorage.setItem('cookieConsent', 'true');
-            document.getElementById('cookieConsentContainer').style.display = 'none';
-        };
-    };
-</script>

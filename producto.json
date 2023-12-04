@@ -1,7 +1,82 @@
-{
-  "nombre": "Blanca Nieves Amigurumi Tejida A Crochet Princesa Disney",
-  "imagen": "img/Blanca.png",
-  "descripcion": "23 cm de altura Bigogurumis es una iniciativa creativa que partió a raíz de la partida de mi adorado Schnauzer llamado Yordy, el crochet ayudo a poder sobrellevar el duelo ya que es una técnica muy relajante y da hermosos resultados.",
-  "stock": 28,
-  "precio": 900.00
-}
+[
+  {
+    "id": 1,
+    "nombre": "Blanca Nieves Amigurumi Tejida A Crochet Princesa Disney",
+    "imagen": "img/Blanca.png",
+    "descripcion": "23 cm de altura Bigogurumis es una iniciativa creativa que partió a raíz de la partida de mi adorado Schnauzer llamado Yordy, el crochet ayudó a poder sobrellevar el duelo ya que es una técnica muy relajante y da hermosos resultados.",
+    "stock": 28,
+    "precio": 900.00
+  },
+  {
+    "id": 2,
+    "nombre": "Brujita Amigurumi Tejida A Crochet",
+    "imagen": "img/brujita.jpg",
+    "descripcion": "Bruja Alana de 30 cm de altura con sombrero. Excelente detalle artesanal, de buena calidad para regalo o simplemente de colección.",
+    "stock": 15,
+    "precio": 1187.00
+  },
+  {
+    "id": 3,
+    "nombre": "Catrina Amigurumi Tejida A Crochet",
+    "imagen": "img/catrina.png",
+    "descripcion": "Medida: 15cm de altura Puedes elegir los colores que más te gusten para tu catrina.",
+    "stock": 20,
+    "precio": 495.00
+  },
+  {
+    "id": 4,
+    "nombre": "Catrina (variacion)",
+    "imagen": "img/catrina2.jpg",
+    "descripcion": "La Catrina es un personaje creado por el pintor.",
+    "stock": 10,
+    "precio": 945.00
+  },
+  {
+    "id": 5,
+    "nombre": "Cenicienta",
+    "imagen": "img/cenicienta.png",
+    "descripcion": "Princesa Cenicienta, tejida a crochet MEDIDA: 21 a 23 cm de altura.",
+    "stock": 10,
+    "precio": 499.00
+  },
+  {
+    "id": 6,
+    "nombre": "Gatito",
+    "imagen": "img/gatito.jpg",
+    "descripcion": "Garantía del vendedor: 7 días tejido hipoalergénico.",
+    "stock": 10,
+    "precio": 499.00
+  },
+  {
+    "id": 7,
+    "nombre": "Perrito",
+    "imagen": "img/perro.jpeg",
+    "descripcion": "Perro amigurumi tejido a crochet Material: Hilaza 100% algodón y acrílico Medida: 10-12 cm de alto aproximadamente de punta a punta.",
+    "stock": 5,
+    "precio": 450.00
+  },
+  {
+    "id": 8,
+    "nombre": "Princesa Rapunzel",
+    "imagen": "img/rapuncel.png",
+    "descripcion": "Tejido relleno de algodón Artículo hipoalergénico.",
+    "stock": 5,
+    "precio": 660.00
+  },
+  {
+    "id": 9,
+    "nombre": "Sirenita",
+    "imagen": "img/sirenita.jpg",
+    "descripcion": "La sirenita ARIEL bordada a mano de 35 cm de altura. Excelente detalle artesanal, de buena calidad para regalo o simplemente de colección.",
+    "stock": 5,
+    "precio": 712.00
+  },
+  {
+    "id": 10,
+    "nombre": "Ajolote",
+    "imagen": "img/ajolote.jpg",
+    "descripcion": "Chibi Ajolotito está hecho con un relleno súper suave y esponjoso y estambre acrílico con una sensación suave al tacto.",
+    "stock": 5,
+    "precio": 360.00
+  }
+]
