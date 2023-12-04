@@ -60,7 +60,7 @@
     "nombre": "Princesa Rapunzel",
     "imagen": "img/rapuncel.png",
     "descripcion": "Tejido relleno de algodón Artículo hipoalergénico.",
-    "stock": 5,
+    "stock": 3,
     "precio": 660.00
   },
   {
@@ -76,7 +76,7 @@
     "nombre": "Ajolote",
     "imagen": "img/ajolote.jpg",
     "descripcion": "Chibi Ajolotito está hecho con un relleno súper suave y esponjoso y estambre acrílico con una sensación suave al tacto.",
-    "stock": 5,
+    "stock": 4,
     "precio": 360.00
   }
 ]
