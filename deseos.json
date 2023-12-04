@@ -1,0 +1,60 @@
+[
+    {
+        "nombre": "Blancanieves",
+        "imagen": "img/Blanca.png",
+        "descripcion": "Bigogurumis es una iniciativa creativa que partió a raíz de la partida de mi adorado Schnauzer llamado Yordy, el crochet ayudó a poder sobrellevar el duelo ya que es una técnica muy relajante y da hermosos resultados.",
+        "stock": 10,
+        "precio": 900.00
+    },
+    {
+        "nombre": "Brujita",
+        "imagen": "img/brujita.jpg",
+        "descripcion": "Bruja Alana de 30 cm de altura con sombrero. Excelente detalle artesanal, de buena calidad para regalo o simplemente de colección.",
+        "stock": 5,
+        "precio": 1187.00
+    },
+    {
+        "nombre": "Catrina",
+        "imagen": "img/catrina.png",
+        "descripcion": "Medida: 15cm de altura. Puedes elegir los colores que más te gusten para tu catrina.",
+        "stock": 8,
+        "precio": 495.00
+    },
+    {
+        "nombre": "Catrina (variacion)",
+        "imagen": "img/catrina2.jpg",
+        "descripcion": "La Catrina es un personaje creado por el pintor, ilustrador y caricaturista mexicano de Aguascalientes, José Guadalupe Posada, es la figura que más se asocia al Día de Muertos y a la muerte en general en nuestro país, siendo uno de los iconos con los que México es conocido en el mundo entero.",
+        "stock": 3,
+        "precio": 945.00
+    },
+    {
+        "nombre": "Cenicienta",
+        "imagen": "img/cenicienta.png",
+        "descripcion": "Princesa Cenicienta, tejida a crochet. MEDIDA: 21 a 23 cm de altura.",
+        "stock": 12,
+        "precio": 499.00
+    },
+    {
+        "nombre": "Gatito",
+        "imagen": "img/gatito.jpg",
+        "descripcion": "Garantía del vendedor: 7 días. Tejido hipoalergénico.",
+        "stock": 15,
+        "precio": 490.00
+    },
+    {
+        "nombre": "Perrito",
+        "imagen": "img/perro.jpeg",
+        "descripcion": "Perro amigurumi tejido a crochet. Material: Hilaza 100% algodón y acrílico. Medida: 10-12 cm de alto aproximadamente de punta a punta.",
+        "stock": 7,
+        "precio": 450.00
+    },
+    {
+        "nombre": "Princesa Rapunzel",
+        "imagen": "img/rapuncel.png",
+        "descripcion": "Tejido relleno de algodón. Artículo hipoalergénico.",
+        "stock": 20,
+        "precio": 660.00
+    }
+
+]
+

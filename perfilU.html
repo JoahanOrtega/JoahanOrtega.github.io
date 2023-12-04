@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDZQCEZKDN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-PDZQCEZKDN');
+    </script>
+
+    <title>Lista de Deseos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Agregamos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Estilos... */
+         /* Estilos para la tabla */
+         table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f4a3f09c;
+        }
+        .editable-field {
+            position: relative;
+            display: inline-block;
+        }
+
+        .edit-icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor: pointer;
+            color: #007bff; /* Color azul para el ícono de editar */
+        }
+
+        /* Estilos para los botones */
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px 5px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 6px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        /* Estilos para la sección de detalles de la cuenta */
+        .detalles-cuenta {
+        text-align: left;
+        margin-top: 30px;
+        margin-left: 60px; /* Agrega un margen a la izquierda */
+        width: 80%; /* Ajusta el ancho según tus necesidades */
+}
+
+        .profile-picture {
+            border-radius: 50%;
+            overflow: hidden;
+            width: 200px;
+            height: 200px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Barra de navegación... -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html" title="index"><img src="img/logo.jpeg" height="70px" alt="logo"
+                        title="logo"></a>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#" title="Inicio"><h3>Inicio</h3></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" title="Productos"><h3>Productos</h3> </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" title="Contacto"><h3>Contacto</h3></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="listaDeseos.html"><h3>lista de deseos</h3></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cart.html"><h3>Carrito</h3></a>
+                        </li>
+                    </ul>
+                   
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    </form>
+                </div>
+                
+            </div>
+            
+        </nav>
+    </header>
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>Historial de pedidos</h4>
+                <br>
+                <table id="tablaOrdenes">
+                    <thead>
+                        <tr>
+                            <th>ID de Orden</th>
+                            <th>Producto</th>
+                            <th>Descripción</th>
+                            <th>Cantidad</th>
+                            <th>Total</th>
+                            <th>Fecha</th>
+                            <th>Estado de Pago</th>
+                            <th>Estado de Pedido</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaOrdenes">
+                        <!-- Aquí se cargarán los elementos de la lista de órdenes dinámicamente con JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-md-4">
+                <div class="detalles-cuenta">
+                    <div class="profile-picture">
+                        <img src="img/imagenn.jpg" alt="Foto de perfil">
+                    </div>
+                    <h3>Detalles de la cuenta</h3>
+
+                    <!-- Formulario para editar detalles de la cuenta -->
+                    <form id="formDetallesCuenta">
+                        <p><strong>Nombre:</strong> <span id="nombreUsuario" class="editable-field" contenteditable="true"></span></p>
+                        <p><strong>Correo:</strong> <span id="correoUsuario" class="editable-field" contenteditable="true"></span></p>
+                        <p><strong>Teléfono:</strong> <span id="telefonoUsuario" class="editable-field" contenteditable="true"></span></p>
+                        <p><strong>Dirección:</strong> <span id="direccionUsuario" class="editable-field" contenteditable="true"></span></p>
+                        <p><strong>Código Postal:</strong> <span id="cpUsuario" class="editable-field" contenteditable="true"></span></p>
+                        <p><strong>Fecha de Nacimiento:</strong> <span id="fechaNacimientoUsuario" class="editable-field" contenteditable="true"></span></p>
+                        <p><strong>País/Región:</strong> <span id="paisRegionUsuario" class="editable-field" contenteditable="true"></span></p>
+                        
+                        <!-- Botón para guardar cambios -->
+                        <button type="button" onclick="guardarCambios()">Guardar</button>
+                    </form>
+
+                    <!-- Formulario para agregar más direcciones -->
+                    <form id="formAgregarDireccion">
+                        <h3>Agregar Dirección</h3>
+                        <label for="nuevaDireccion">Nueva Dirección:</label>
+                        <input type="text" id="nuevaDireccion" name="nuevaDireccion">
+                        <button type="button" onclick="agregarDireccion()">+ Dirección</button>
+                    </form>
+                    
+                    <!-- Mostrar la dirección agregada -->
+                    <ul id="listaDirecciones"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Obtener la referencia a los elementos de la cuenta
+            const nombreUsuario = document.getElementById("nombreUsuario");
+            const correoUsuario = document.getElementById("correoUsuario");
+            const telefonoUsuario = document.getElementById("telefonoUsuario");
+            const direccionUsuario = document.getElementById("direccionUsuario");
+            const cpUsuario = document.getElementById("cpUsuario");
+            const fechaNacimientoUsuario = document.getElementById("fechaNacimientoUsuario");
+            const paisRegionUsuario = document.getElementById("paisRegionUsuario");
+            // Obtener la referencia al elemento tbody de la tabla
+            const listaOrdenesTable = document.getElementById("listaOrdenes");
+
+            // Hacer una solicitud para obtener los datos del archivo JSON
+            fetch("ordenCompra.json")
+                .then(response => response.json())
+                .then(data => {
+                    // Iterar sobre los objetos en el JSON y crear filas de la tabla en el HTML
+                    data.forEach(orden => {
+                        // Crear una fila para cada orden de compra
+                        const orderRow = document.createElement("tr");
+
+                        // Crear la estructura HTML de la fila
+                        orderRow.innerHTML = `
+                            <td>${orden.id}</td>
+                            <td>${orden.producto}</td>
+                            <td>${orden.descripcion}</td>
+                            <td>${orden.cantidad}</td>
+                            <td>$${orden.total.toFixed(2)}</td>
+                            <td>${formatDate(orden.fecha)}</td>
+                            <td>${orden.estadoPago}</td>
+                            <td>${orden.estadoPedido}</td>
+                        `;
+
+                        // Agregar la fila a la tabla
+                        listaOrdenesTable.appendChild(orderRow);
+                    });
+                })
+                .catch(error => console.error("Error al cargar el JSON:", error));
+
+            // Hacer una solicitud para obtener los datos del archivo JSON
+            fetch("datosUsuario.json")
+                .then(response => response.json())
+                .then(data => {
+                    // Mostrar los datos del usuario en la página
+                    nombreUsuario.textContent = data.nombreCompleto;
+                    correoUsuario.textContent = data.correo;
+                    telefonoUsuario.textContent = data.telefono;
+                    direccionUsuario.textContent = data.direccion;
+                    cpUsuario.textContent = data.cp;
+                    fechaNacimientoUsuario.textContent = data.fechaNacimiento;
+                    paisRegionUsuario.textContent = data.paisRegion;
+                })
+                .catch(error => console.error("Error al cargar el JSON:", error));
+        });
+
+        // Función para dar formato a la fecha
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('es-ES', options);
+        }
+
+        // Función para guardar los cambios en los detalles de la cuenta
+        function guardarCambios() {
+            // Lógica para guardar los cambios en el servidor
+            alert("Cambios guardados");
+        }
+
+        
+        // Lista de direcciones
+        const direcciones = [];
+
+        // Función para agregar más direcciones
+        function agregarDireccion() {
+            const nuevaDireccion = document.getElementById("nuevaDireccion").value;
+            // Añadir la nueva dirección a la lista
+            direcciones.push(nuevaDireccion);
+
+            // Limpiar el campo de entrada
+            document.getElementById("nuevaDireccion").value = '';
+
+            // Actualizar la lista de direcciones en el HTML
+            actualizarListaDirecciones();
+        }
+
+        // Función para actualizar la lista de direcciones en el HTML
+        function actualizarListaDirecciones() {
+            const listaDirecciones = document.getElementById("listaDirecciones");
+
+            // Limpiar la lista antes de actualizar
+            listaDirecciones.innerHTML = '';
+
+            // Agregar cada dirección a la lista
+            direcciones.forEach(direccion => {
+                const direccionItem = document.createElement("li");
+                direccionItem.textContent = direccion;
+                direccionItem.classList.add("direccion-item");
+                listaDirecciones.appendChild(direccionItem);
+            });
+        }
+    </script>
+
+</script>
+</body>
+</html>

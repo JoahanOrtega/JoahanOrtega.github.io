@@ -1,0 +1,13 @@
+{
+    "nombreCompleto": "Karen Doe liruliru",
+    "telefono": "123456789",
+    "correo": "karendoe@example.com",
+    "contrasena": "secreto123",
+    "fechaNacimiento": "2002-05-20",
+    "direccion": "Calle Principal 123",
+    "cp": "12355",
+    "paisRegion": "México",
+    "otrasDirecciones": ["Otra Dirección 1", "Otra Dirección 2"],
+    "fotoPerfil": "ajolote.jpg"
+  }
+  

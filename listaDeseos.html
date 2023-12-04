@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDZQCEZKDN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-PDZQCEZKDN');
+  </script>
+
+  <title>Lista de Deseos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+       
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #e3b1eeef;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #e3b1eeef;
+        }
+
+        img {
+            border-radius: 50%; /* Hace que las imágenes sean redondas */
+        }
+
+        .eliminar-btn {
+            border: none;
+            border-radius: 50%; /* Hace que el botón sea redondo */
+            background-color: #3498db; /* Color azul */
+            color: #fff; /* Texto en color blanco */
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header> <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html" title="index"><img src="img/logo.jpeg" height="70px" alt="logo"
+                    title="logo"></a>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#" title="Inicio"><h3>Inicio</h3></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Productos"><h3>Productos</h3> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Contacto"><h3>Contacto</h3></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="listaDeseos.html"><h3>lista de deseos</h3></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html"><h3>Carrito</h3></a>
+                    </li>
+                </ul>
+               
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+            </div>
+            
+        </div>
+        
+    </nav></header>
+  
+    
+    <table id="tablaDeseos">
+        <thead>
+            <tr>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="listaDeseos">
+            <!-- Aquí se cargarán los elementos de la lista de deseos dinámicamente con JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Obtener la referencia al elemento tbody de la tabla
+            const listaDeseosTable = document.getElementById("listaDeseos");
+
+            // Hacer una solicitud para obtener los datos del archivo JSON
+            fetch("deseos.json")
+                .then(response => response.json())
+                .then(data => {
+                    // Iterar sobre los objetos en el JSON y crear filas de la tabla en el HTML
+                    data.forEach(deseo => {
+                        // Crear una fila para cada producto
+                        const productRow = document.createElement("tr");
+
+                        // Crear la estructura HTML de la fila
+                        productRow.innerHTML = `
+                            <td><img src="${deseo.imagen}" alt="${deseo.nombre}" title="${deseo.nombre}" height="50px"></td>
+                            <td>${deseo.nombre}</td>
+                            <td>$${deseo.precio.toFixed(2)}</td>
+                            <td>${deseo.descripcion}</td>
+                            <td><button class="eliminar-btn" onclick="eliminarProducto(this)">Eliminar</button></td>
+                        `;
+
+                        // Agregar la fila a la tabla
+                        listaDeseosTable.appendChild(productRow);
+                    });
+                })
+                .catch(error => console.error("Error al cargar el JSON:", error));
+        });
+
+        function eliminarProducto(button) {
+            // Obtener la fila actual
+            const row = button.closest("tr");
+
+            // Eliminar la fila
+            row.remove();
+        }
+    </script>
+</body>
+</html>

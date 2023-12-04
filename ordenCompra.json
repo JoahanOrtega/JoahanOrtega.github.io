@@ -1,0 +1,43 @@
+[
+    {
+        "id": "#546789",
+        "producto": "Amigurumi Blancanieves",
+        "descripcion": "Bigogurumis de crochet para sobrellevar el duelo, con tranquilidad...",
+        "cantidad": 2,
+        "total": 1800.00,
+        "fecha": "2023-12-01",
+        "estadoPago": "Pagado",
+        "estadoPedido": "En Proceso"
+    },
+    {
+        "id": "#687367",
+        "producto": "Amigurumi Brujita",
+        "descripcion": "Bruja Alana de 30 cm de altura con sombrero. Excelente detalle artesanal",
+        "cantidad": 1,
+        "total": 1187.00,
+        "fecha": "2023-12-02",
+        "estadoPago": "Pendiente",
+        "estadoPedido": "En Espera"
+    },
+    {
+        "id": "#6476738",
+        "producto": "Peluche Catrina",
+        "descripcion": "Medida: 15cm de altura. Puedes elegir los colores que más te gusten para tu catrina.",
+        "cantidad": 3,
+        "total": 1485.00,
+        "fecha": "2023-12-03",
+        "estadoPago": "Pagado",
+        "estadoPedido": "Enviado"
+    },
+    {
+        "id": "#343223",
+        "producto": "Amigurumi Cenicienta",
+        "descripcion": "Princesa Cenicienta, tejida a crochet. MEDIDA: 21 a 23 cm de altura.",
+        "cantidad": 2,
+        "total": 998.00,
+        "fecha": "2023-12-04",
+        "estadoPago": "Pagado",
+        "estadoPedido": "Entregado"
+    }
+]
+
