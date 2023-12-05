@@ -19,7 +19,6 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="product.css">
 </head>
-
 <body>
   <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -83,12 +82,17 @@
           <input type="radio" id="star1" name="rating" value="1">
           <label for="star1"></label>
         </div>
+        
         <h1 id="product-name"></h1>
         <p id="product-description"></p>
         <p id="product-stock"></p>
         <p id="product-price"></p>
         <button type="button" id="addToCartBtn" class="btn btn-primary">Agregar al carrito</button>
         <p id="cart-message"></p>
+         <!-- Wishlist button -->
+         <button class="btn btn-outline-danger" onclick="agregarAListaDeseos()">
+          ❤️ Agregar a Lista de Deseos
+          </button>
       </div>
     </div>
 
@@ -121,6 +125,7 @@
   </div>
 
   <script>
+   
     function addToCart() {
       const productName = document.getElementById('product-name').textContent;
       const productPriceText = document.getElementById('product-price').textContent;
@@ -222,6 +227,9 @@
     addCommentBtn.addEventListener('click', function () {
       addComment();
     });
+    function agregarAListaDeseos(id) {
+      alert('Producto agregado a la Lista de Deseos');
+    }
 
   </script>
 

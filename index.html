@@ -296,29 +296,30 @@
             let listaDeseos = []; // Array para almacenar productos en la lista de deseos
 
             function agregarAListaDeseos(id) {
-                const productoSeleccionado = productos.find(producto => producto.id === id);
+    const productoSeleccionado = productos.find(producto => producto.id === id);
 
-                if (productoSeleccionado) {
-                    // Añadir el producto a la lista de deseos
-                    listaDeseos.push(productoSeleccionado);
-                    alert('Producto agregado a la Lista de Deseos');
+    if (productoSeleccionado) {
+        // Añadir el producto a la lista de deseos
+        listaDeseos.push(productoSeleccionado);
+        alert('Producto agregado a la Lista de Deseos');
 
-                    // Actualizar localStorage
-                    localStorage.setItem('listaDeseos', JSON.stringify(listaDeseos));
-                } else {
-                    alert('Error: No se pudo encontrar el producto.');
-                }
-            }
+        // Actualizar localStorage
+        localStorage.setItem('listaDeseos', JSON.stringify(listaDeseos));
 
+        // Redirigir a la página de lista de deseos
+        verListaDeseos();
+    } else {
+        alert('Error: No se pudo encontrar el producto.');
+    }
+}
 
-            function verListaDeseos() {
-                // Guardar la lista de deseos en el almacenamiento local para recuperarla en la otra página
-                localStorage.setItem('listaDeseos', JSON.stringify(listaDeseos));
-                console.log('Lista de deseos:', listaDeseos); // Agregamos un log para verificar la lista de deseos en la consola
-                // Redireccionar a la página de lista de deseos
-                console.log('Redirigiendo a listaDeseos.html');
-                window.location.href = 'listaDeseos.html';
-            }
+function verListaDeseos() {
+    // Guardar la lista de deseos en el almacenamiento local para recuperarla en la otra página
+    localStorage.setItem('listaDeseos', JSON.stringify(listaDeseos));
+
+  
+}
+
         </script>
 </body>
 
