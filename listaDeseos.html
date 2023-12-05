@@ -152,11 +152,15 @@ cargarProductosDesdeLocalStorage();
 cargarProductosDesdeJSON();
 
 
-        const eliminarDeListaDeseos = (id) => {
-            listaDeseos = listaDeseos.filter(producto => producto.id !== id);
-            localStorage.setItem('listaDeseos', JSON.stringify(listaDeseos));
-            mostrarListaDeseos();
-        }
+const eliminarDeListaDeseos = (id) => {
+    console.log('Lista de deseos antes de la eliminación:', listaDeseos);
+    listaDeseos = listaDeseos.filter(producto => producto.id !== id);
+    console.log('Lista de deseos después de la eliminación:', listaDeseos);
+    localStorage.setItem('listaDeseos', JSON.stringify(listaDeseos));
+    mostrarListaDeseos();
+}
+
+
 
         function comprarProducto(id) {
             // Implementa la lógica para comprar el producto

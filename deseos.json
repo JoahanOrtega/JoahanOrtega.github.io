@@ -1,12 +1,7 @@
 [
+    
     {
-        "nombre": "Blancanieves",
-        "imagen": "img/Blanca.png",
-        "descripcion": "Bigogurumis es una iniciativa creativa que partió a raíz de la partida de mi adorado Schnauzer llamado Yordy, el crochet ayudó a poder sobrellevar el duelo ya que es una técnica muy relajante y da hermosos resultados.",
-        "stock": 10,
-        "precio": 900.00
-    },
-    {
+        "id": 2,
         "nombre": "Brujita",
         "imagen": "img/brujita.jpg",
         "descripcion": "Bruja Alana de 30 cm de altura con sombrero. Excelente detalle artesanal, de buena calidad para regalo o simplemente de colección.",
@@ -14,12 +9,21 @@
         "precio": 1187.00
     },
     {
+        "id": 5,
         "nombre": "Cenicienta",
         "imagen": "img/cenicienta.png",
         "descripcion": "Princesa Cenicienta, tejida a crochet. MEDIDA: 21 a 23 cm de altura.",
         "stock": 12,
         "precio": 499.00
-    }
+    },
+    {
+        "id": 7,
+        "nombre": "Perrito",
+        "imagen": "img/perro.jpeg",
+        "descripcion": "Perro amigurumi tejido a crochet Material: Hilaza 100% algodón y acrílico Medida: 10-12 cm de alto aproximadamente de punta a punta.",
+        "stock": 5,
+        "precio": 450.00
+      }
 
 ]
 
