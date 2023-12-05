@@ -267,7 +267,7 @@
         <div class="row g-5">
           <div class="col-md-7 col-lg-12">
             <h4 class="mb-3">Informacion</h4>
-            <form id="registroForm">
+            <form id="formularioProducto">
               <div class="row g-3">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" required><br>
@@ -288,7 +288,7 @@
 
                 <hr class="my-4">
 
-                <button type="button" class="w-100 btn btn-primary btn-lg" id="registrarBtn">Agregar</button>
+                <button class="w-100 btn btn-primary btn-lg" type="button" id="registrarBtn">Agregar</button>
             </form>
           </div>
         </div>
@@ -406,40 +406,34 @@
       }
     }
 
+    // Función para registrar un nuevo producto
     function registrarProducto() {
-      document.addEventListener('DOMContentLoaded', function () {
-        // ... otras funciones y código ...
-        // Obtener los valores del formulario
-        var nombre = document.getElementById('nombre').value;
-        var descripcion_corta = document.getElementById('descripcion_corta').value;
-        var descripcion = document.getElementById('descripcion').value;
-        var stock = document.getElementById('stock').value;
-        var precio = document.getElementById('precio').value;
+      // Obtener los valores del formulario
+      var nombre = document.getElementById('nombre').value;
+      var descripcion_corta = document.getElementById('descripcion_corta').value;
+      var descripcion = document.getElementById('descripcion').value;
+      var stock = document.getElementById('stock').value;
+      var precio = document.getElementById('precio').value;
 
-        // Crear un nuevo producto
-        var nuevoProducto = {
-          nombre: nombre,
-          descripcion_corta: descripcion_corta,
-          descripcion: descripcion,
-          stock: stock,
-          precio: precio
-        };
+      // Crear un nuevo producto
+      var nuevoProducto = {
+        nombre: nombre,
+        descripcion_corta: descripcion_corta,
+        descripcion: descripcion,
+        stock: parseInt(stock, 10), // Asegúrate de convertir el stock y precio a números si son necesarios
+        precio: parseFloat(precio)
+      };
 
-        // Agregar el producto al array de productos
-        productos.push(nuevoProducto);
+      // Agregar el producto al array de productos
+      productos.push(nuevoProducto);
 
-        // Actualizar la tabla de productos
-        listarProductos();
+      // Actualizar la tabla de productos
+      listarProductos();
 
-        // Limpiar el formulario después de agregar
-        limpiarFormulario();
-
-
-        // Enlazar la función registrarProducto al evento click del botón
-        document.getElementById('registrarBtn').addEventListener('click', registrarProducto);
-      });
-
+      // Limpiar el formulario después de agregar
+      limpiarFormulario();
     }
+
     // Función para eliminar un producto
     function eliminarProducto(nombre) {
       // Filtrar los productos para excluir el que se va a eliminar
@@ -480,11 +474,11 @@
         })
         .catch(error => console.error('Error al cargar productos:', error));
     }
-
-    // Manejo de eventos al cargar la página
     // Inicialización de eventos y carga inicial de datos
+    // Manejo de eventos al cargar la página
     document.addEventListener('DOMContentLoaded', function () {
       cargarProductosDesdeJSON();
+      // Enlazar la función registrarProducto al evento click del botón
       document.getElementById('registrarBtn').addEventListener('click', registrarProducto);
     });
 
