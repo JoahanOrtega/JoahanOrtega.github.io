@@ -272,11 +272,8 @@
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" required><br>
 
-                <label for="descripcion_corta">Descripción Corta:</label>
-                <input type="text" id="descripcion_corta" required><br>
-
-                <label for="descripcion_larga">Descripción Larga:</label>
-                <textarea id="descripcion_larga" required></textarea><br>
+                <label for="descripcion">Descripción Corta:</label>
+                <input type="text" id="descripcion" required><br>
 
                 <label for="stock">Stock:</label>
                 <input type="text" id="stock" required><br>
@@ -299,8 +296,7 @@
             <table class="table" id="tablaProductos">
               <tr>
                 <th>Nombre</th>
-                <th>Descripción Corta</th>
-                <th>Descripción Larga</th>
+                <th>Descripción</th>
                 <th>Precio</th>
                 <th>Stock</th>
                 <th>Acciones</th>
@@ -330,16 +326,15 @@
 
       // Encabezado de la tabla
       var headerRow = tablaProductos.insertRow(0);
-      headerRow.innerHTML = "<th>Nombre</th><th>Descripción Corta</th><th>Descripción Larga</th><th>Stock</th><th>Precio</th><th>Acciones</th>";
+      headerRow.innerHTML = "<th>Nombre</th><th>Descripción</th><th>Stock</th><th>Precio</th><th>Acciones</th>";
 
       productos.forEach(function (producto) {
         var row = tablaProductos.insertRow(-1);
         row.insertCell(0).textContent = producto.nombre;
-        row.insertCell(1).textContent = producto.descripcion_corta;
-        row.insertCell(2).textContent = producto.descripcion_larga;
-        row.insertCell(3).textContent = producto.stock;
-        row.insertCell(4).textContent = producto.precio;
-        var actionsCell = row.insertCell(5);
+        row.insertCell(1).textContent = producto.descripcion;
+        row.insertCell(2).textContent = producto.stock;
+        row.insertCell(3).textContent = producto.precio;
+        var actionsCell = row.insertCell(4);
         actionsCell.innerHTML = "<button class='editar' onclick='editarProducto(\"" + producto.nombre + "\")'>Editar</button> <button class='eliminar' onclick='eliminarProducto(\"" + producto.nombre + "\")'>Eliminar</button>";
       });
     }
@@ -353,10 +348,9 @@
       if (producto) {
         // Llenar el formulario con la información del producto
         document.getElementById('nombre').value = producto.nombre;
-        document.getElementById('descripcion_corta').value = producto.descripcion_corta;
-        document.getElementById('descripcion_larga').value = producto.descripcion_larga;
-        document.getElementById('stock').value = producto.precio;
-        document.getElementById('precio').value = producto.imagen;
+        document.getElementById('descripcion').value = producto.descripcion;
+        document.getElementById('stock').value = producto.stock;
+        document.getElementById('precio').value = producto.precio;
 
         // Establecer las categorías seleccionadas en el formulario
         var categoriasSelect = document.getElementById('categorias');
@@ -388,11 +382,9 @@
     function editarProductoExistente(nombreActual) {
       // Obtener los valores del formulario de edición
       var nuevoNombre = document.getElementById('nombre').value;
-      var nuevaDescripcionCorta = document.getElementById('descripcion_corta').value;
-      var nuevaDescripcionLarga = document.getElementById('descripcion_larga').value;
+      var nuevaDescripcionCorta = document.getElementById('descripcion').value;
+      var nuevoStock = document.getElementById('stock').value;
       var nuevoPrecio = document.getElementById('precio').value;
-      var nuevaUrlImagen = document.getElementById('imagen').value;
-      var nuevasCategorias = Array.from(document.getElementById('categorias').selectedOptions).map(option => option.value);
 
       // Buscar el producto por nombre
       var producto = productos.find(function (item) {
@@ -402,11 +394,10 @@
       if (producto) {
         // Actualizar la información del producto
         producto.nombre = nuevoNombre;
-        producto.descripcion_corta = nuevaDescripcionCorta;
-        producto.descripcion_larga = nuevaDescripcionLarga;
+        producto.descripcion = nuevaDescripcionCorta;
+        producto.stock = nuevoStock;
         producto.precio = nuevoPrecio;
-        producto.imagen = nuevaUrlImagen;
-        producto.categorias = nuevasCategorias;
+        
 
         // Restaurar el formulario y cambiar el botón a Registrar Producto
         limpiarFormulario();
@@ -424,16 +415,14 @@
         // ... otras funciones y código ...
         // Obtener los valores del formulario
         var nombre = document.getElementById('nombre').value;
-        var descripcion_corta = document.getElementById('descripcion_corta').value;
-        var descripcion_larga = document.getElementById('descripcion_larga').value;
+        var descripcion = document.getElementById('descripcion').value;
         var stock = document.getElementById('stock').value;
         var precio = document.getElementById('precio').value;
 
         // Crear un nuevo producto
         var nuevoProducto = {
           nombre: nombre,
-          descripcion_corta: descripcion_corta,
-          descripcion_larga: descripcion_larga,
+          descripcion: descripcion,
           stock: stock,
           precio: precio
         };
@@ -467,10 +456,9 @@
     // Función para limpiar el formulario
     function limpiarFormulario() {
       document.getElementById('nombre').value = '';
-      document.getElementById('descripcion_corta').value = '';
-      document.getElementById('descripcion_larga').value = '';
+      document.getElementById('descripcion').value = '';
+      document.getElementById('stock').value = '';
       document.getElementById('precio').value = '';
-      document.getElementById('imagen').value = '';
     }
 
     // Función para cambiar el botón de Editar Producto a Registrar Producto
