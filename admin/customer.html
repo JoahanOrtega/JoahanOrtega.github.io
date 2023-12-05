@@ -99,8 +99,8 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../carousel/index.html" title="index"><img src="../img/logo.jpeg" height="70px"
-                        alt="logo" title="logo"></a>
+                <a class="navbar-brand" href="../carousel/index.html" title="index"><img src="../img/logo.jpeg"
+                        height="70px" alt="logo" title="logo"></a>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -269,30 +269,23 @@
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="py-5 text-center">
-                    <h2>Registrar nuevo producto</h2>
+                    <h2>Registrar nuevo usuario</h2>
                 </div>
 
                 <div class="row g-5">
                     <div class="col-md-7 col-lg-12">
                         <h4 class="mb-3">Informacion</h4>
-                        <form class="needs-validation" novalidate>
+                        <form class="needs-validation" id="registroForm">
                             <div class="row g-3">
                                 <div class="col-sm-6">
-                                    <label for="firstName" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" id="firstName" placeholder="" value=""
-                                        required>
-                                    <div class="invalid-feedback">
-                                        El campo nombre es requerido.
-                                    </div>
+                                    <label for="name" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="name" placeholder="" value="" required>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <label for="lastName" class="form-label">Apellidos</label>
                                     <input type="text" class="form-control" id="lastName" placeholder="" value=""
                                         required>
-                                    <div class="invalid-feedback">
-                                        El campo apellidos es requerido.
-                                    </div>
                                 </div>
 
                                 <div class="col-12">
@@ -301,64 +294,67 @@
                                         <span class="input-group-text">@</span>
                                         <input type="text" class="form-control" id="username" placeholder="Username"
                                             required>
-                                        <div class="invalid-feedback">
-                                            El campo Username es requerido.
-                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="col-12">
                                     <label for="email" class="form-label">Email</label>
                                     <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                                    <div class="invalid-feedback">
-                                        Ingresa un correo valido.
-                                    </div>
                                 </div>
 
                                 <div class="col-12">
                                     <label for="address" class="form-label">Direccion</label>
                                     <input type="text" class="form-control" id="address" placeholder="1234 Main St"
                                         required>
-                                    <div class="invalid-feedback">
-                                        El campo direccion es requerido.
-                                    </div>
                                 </div>
 
                                 <div class="col-md-5">
                                     <label for="country" class="form-label">Pais</label>
-                                    <select class="form-select" id="country" required>
-                                        <option value="">Elige...</option>
-                                        <option>Mexico</option>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Selecciona un pais.
-                                    </div>
+                                    <input type="text" class="form-control" id="country" required>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label for="state" class="form-label">Estado</label>
-                                    <select class="form-select" id="state" required>
-                                        <option value="">Elige...</option>
-                                        <option>Aguascalientes</option>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Selecciona un estado.
-                                    </div>
+                                    <input type="text" class="form-control" id="state" required>
                                 </div>
 
                                 <div class="col-md-3">
                                     <label for="zip" class="form-label">C.P.</label>
                                     <input type="text" class="form-control" id="zip" placeholder="" required>
-                                    <div class="invalid-feedback">
-                                        El campo CP es requerido.
-                                    </div>
                                 </div>
                             </div>
 
                             <hr class="my-4">
 
-                            <button class="w-100 btn btn-primary btn-lg" type="submit">Agregar</button>
+                            <button class="w-100 btn btn-primary btn-lg" type="button"
+                                onclick="registrarUsuario()">Agregar</button>
                         </form>
+                    </div>
+                </div>
+
+                <div class="py-5 text-center">
+                    <h2>Usuarios</h2>
+                </div>
+                <!-- Tabla para mostrar los datos -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table" id="usuariosTable">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>Usuario</th>
+                                    <th>Email</th>
+                                    <th>Direccion</th>
+                                    <th>Pais</th>
+                                    <th>Estado</th>
+                                    <th>CP</th>
+                                </tr>
+                                <tbody>
+                                    
+                                </tbody>
+                            </thead>
+                        </table>
                     </div>
                 </div>
                 <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
@@ -372,7 +368,120 @@
         integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp"
         crossorigin="anonymous"></script>
 
-    <!-- <script src="control.js"></script> -->
+    <script>
+        let usuarios = [];
+
+        function registrarUsuario() {
+            const nombre = document.getElementById('name').value;
+            const apellido = document.getElementById('lastName').value;
+            const usuario = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const direccion = document.getElementById('address').value;
+            const pais = document.getElementById('country').value;
+            const estado = document.getElementById('state').value;
+            const zip = document.getElementById('zip').value;
+
+            if (nombre && apellido && usuario && email && direccion && pais && estado && zip) {
+                const nuevoUsuario = {
+                    nombre,
+                    apellido,
+                    usuario,
+                    email,
+                    direccion,
+                    pais,
+                    estado,
+                    zip
+                };
+                usuarios.push(nuevoUsuario);
+
+                // Limpiar
+                document.getElementById('name').value = '';
+                document.getElementById('lastName').value = '';
+                document.getElementById('username').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('address').value = '';
+                document.getElementById('country').value = '';
+                document.getElementById('state').value = '';
+                document.getElementById('zip').value = '';
+
+                // Mostrar en consola
+                console.log('Usuario registrado:', nuevoUsuario);
+                mostrarUsuariosEnTabla();
+            } else {
+                alert('Llene todos los campos');
+            }
+        }
+
+        // Función para mostrar usuarios en la tabla
+        function mostrarUsuariosEnTabla() {
+            var tablaUsuarios = document.getElementById('usuariosTable').getElementsByTagName('tbody')[0];
+            tablaUsuarios.innerHTML = ''; // Limpiar la tabla antes de mostrar los usuarios
+
+            usuarios.forEach((usuario, index) => {
+                const fila = tablaUsuarios.insertRow();
+
+                for (const prop in usuario) {
+                    const celda = fila.insertCell();
+                    celda.textContent = usuario[prop];
+                }
+
+                const celdaAcciones = fila.insertCell();
+                const btnEditar = document.createElement('button');
+                btnEditar.textContent = 'Editar';
+                btnEditar.onclick = () => editarUsuario(index);
+                celdaAcciones.appendChild(btnEditar);
+
+                const btnEliminar = document.createElement('button');
+                btnEliminar.textContent = 'Eliminar';
+                btnEliminar.onclick = () => eliminarUsuario(index);
+                celdaAcciones.appendChild(btnEliminar);
+            });
+        }
+        // Función para cargar usuarios al iniciar la página
+        function cargarUsuarios() {
+            fetch('clients.json')
+                .then(response => response.json())
+                .then(data => {
+                    usuarios = [...usuarios, ...data];
+                    mostrarUsuariosEnTabla();
+                })
+                .catch(error => console.error('Error al cargar usuarios:', error));
+        }
+
+        // Función para editar un usuario
+        function editarUsuario(index) {
+            const usuario = usuarios[index];
+            document.getElementById('name').value = usuario.nombre;
+            document.getElementById('lastName').value = usuario.apellido;
+            document.getElementById('username').value = usuario.usuario;
+            document.getElementById('email').value = usuario.email;
+            document.getElementById('address').value = usuario.direccion;
+            document.getElementById('country').value = usuario.pais;
+            document.getElementById('state').value = usuario.estado;
+            document.getElementById('zip').value = usuario.cp;
+
+            // Eliminar el usuario de la lista
+            usuarios.splice(index, 1);
+
+            // Mostrar la lista actualizada
+            mostrarUsuariosEnTabla();
+        }
+
+        // Función para eliminar un usuario
+        function eliminarUsuario(index) {
+            alert('Eliminado');
+            // Eliminar el usuario de la lista
+            usuarios.splice(index, 1);
+            // Mostrar la lista actualizada
+            mostrarUsuariosEnTabla();
+        }
+
+        // Cargar usuarios al iniciar la página
+        window.onload = function () {
+            cargarUsuarios();
+            mostrarUsuariosEnTabla();
+        };
+    </script>
 </body>
 
 </html>

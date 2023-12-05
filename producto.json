@@ -3,7 +3,8 @@
     "id": 1,
     "nombre": "Blanca Nieves Amigurumi Tejida A Crochet Princesa Disney",
     "imagen": "img/Blanca.png",
-    "descripcion": "23 cm de altura Bigogurumis es una iniciativa creativa que partió a raíz de la partida de mi adorado Schnauzer llamado Yordy, el crochet ayudó a poder sobrellevar el duelo ya que es una técnica muy relajante y da hermosos resultados.",
+    "descripcion_corta": "Encantadora figura amigurumi de Blanca Nieves, perfecta para coleccionistas y amantes de Disney.",
+    "descripcion": "Este amigurumi de Blanca Nieves, tejido con delicadeza y cuidado, captura la esencia de la querida princesa de Disney. Con 23 cm de altura, esta figura hecha a mano es ideal tanto para juguetes infantiles como para una pieza de colección. Inspirada en la pasión por el arte del crochet, esta pieza aporta un toque mágico a cualquier espacio.",
     "stock": 28,
     "precio": 900.00
   },
@@ -11,7 +12,8 @@
     "id": 2,
     "nombre": "Brujita Amigurumi Tejida A Crochet",
     "imagen": "img/brujita.jpg",
-    "descripcion": "Bruja Alana de 30 cm de altura con sombrero. Excelente detalle artesanal, de buena calidad para regalo o simplemente de colección.",
+    "descripcion_corta": "Amigurumi de bruja Alana, un regalo único con detalles artesanales y encanto mágico",
+    "descripcion": "Esta bruja Alana amigurumi, con su sombrero distintivo y 30 cm de altura, es una obra maestra tejida a mano. Cada detalle ha sido cuidadosamente elaborado para capturar la esencia de un personaje mágico. Perfecta como regalo o para añadir a una colección de artesanías, esta bruja tejida es un testimonio del arte del crochet.",
     "stock": 15,
     "precio": 1187.00
   },
@@ -19,7 +21,8 @@
     "id": 3,
     "nombre": "Catrina Amigurumi Tejida A Crochet",
     "imagen": "img/catrina.png",
-    "descripcion": "Medida: 15cm de altura Puedes elegir los colores que más te gusten para tu catrina.",
+    "descripcion_corta": "Catrina amigurumi personalizable, una vibrante adición a cualquier colección de arte popular.",
+    "descripcion": "Con 15 cm de altura, esta Catrina amigurumi tejida a mano ofrece una oportunidad única para personalizar los colores según tus preferencias. Inspirada en la rica cultura y el arte, esta figura aporta un toque de tradición y color a cualquier espacio. Ideal para aquellos que aprecian el arte popular y desean una pieza única en su colección.",
     "stock": 20,
     "precio": 495.00
   },
@@ -27,7 +30,8 @@
     "id": 4,
     "nombre": "Catrina (variacion)",
     "imagen": "img/catrina2.jpg",
-    "descripcion": "La Catrina es un personaje creado por el pintor.",
+    "descripcion_corta": "Elegante Catrina amigurumi, una representación artística tejida con esmero.",
+    "descripcion": "Esta variante de Catrina amigurumi rinde homenaje al icónico personaje cultural. Tejida con destreza y atención al detalle, esta figura captura la elegancia y el misterio de la Catrina. Una pieza de arte en sí misma, es perfecta para coleccionistas y amantes de la cultura tradicional.",
     "stock": 10,
     "precio": 945.00
   },
@@ -35,7 +39,8 @@
     "id": 5,
     "nombre": "Cenicienta",
     "imagen": "img/cenicienta.png",
-    "descripcion": "Princesa Cenicienta, tejida a crochet MEDIDA: 21 a 23 cm de altura.",
+    "descripcion_corta": "Princesa Cenicienta amigurumi, un encantador tributo a los cuentos de hadas clásicos.",
+    "descripcion": "Esta figura amigurumi de la Princesa Cenicienta, meticulosamente tejida a crochet, trae a la vida la magia de los cuentos de hadas. Con una altura de 21 a 23 cm, es la compañía perfecta para los momentos de juego o como una encantadora pieza de decoración. Su diseño detallado captura la belleza y gracia del personaje, haciéndola un regalo ideal para los fans de todas las edades.",
     "stock": 8,
     "precio": 499.00
   },
@@ -43,15 +48,17 @@
     "id": 6,
     "nombre": "Gatito",
     "imagen": "img/gatito.jpg",
-    "descripcion": "Garantía del vendedor: 7 días tejido hipoalergénico.",
+    "descripcion_corta": "Amigurumi de gatito hipoalergénico, ideal para abrazar y amar.",
+    "descripcion": "Este gatito amigurumi, tejido con hilos hipoalergénicos, es el compañero perfecto para abrazar. Su textura suave y diseño adorable lo hacen ideal para niños y adultos. La garantía de 7 días asegura su calidad y durabilidad, haciéndolo un regalo perfecto para los amantes de los gatos.",
     "stock": 10,
-    "precio": 499.00
+    "precio": 498.00
   },
   {
     "id": 7,
     "nombre": "Perrito",
     "imagen": "img/perro.jpeg",
-    "descripcion": "Perro amigurumi tejido a crochet Material: Hilaza 100% algodón y acrílico Medida: 10-12 cm de alto aproximadamente de punta a punta.",
+    "descripcion_corta": "Perrito amigurumi tejido a mano, una adorable adición a cualquier hogar.",
+    "descripcion": "Este perrito amigurumi, confeccionado con hilaza de algodón y acrílico, es una muestra exquisita de artesanía. Con una medida de 10-12 cm, es el tamaño ideal para ser un compañero de bolsillo o una pieza decorativa. Su aspecto lúdico y material hipoalergénico lo convierten en una opción segura y encantadora para todas las edades.",
     "stock": 5,
     "precio": 450.00
   },
@@ -59,7 +66,8 @@
     "id": 8,
     "nombre": "Princesa Rapunzel",
     "imagen": "img/rapuncel.png",
-    "descripcion": "Tejido relleno de algodón Artículo hipoalergénico.",
+    "descripcion_corta": "Amigurumi de Princesa Rapunzel, una figura tejida con amor y detalle.",
+    "descripcion": "Inspirada en la famosa princesa de cuento, esta figura amigurumi de Rapunzel es una obra de arte tejida a mano. Con su relleno de algodón hipoalergénico, es segura y suave al tacto, ideal para niños o como una pieza de colección. Su diseño detallado y vibrante captura la esencia de Rapunzel, agregando un toque de magia a cualquier espacio.",
     "stock": 3,
     "precio": 660.00
   },
@@ -67,7 +75,8 @@
     "id": 9,
     "nombre": "Sirenita",
     "imagen": "img/sirenita.jpg",
-    "descripcion": "La sirenita ARIEL bordada a mano de 35 cm de altura. Excelente detalle artesanal, de buena calidad para regalo o simplemente de colección.",
+    "descripcion_corta": "Sirenita Ariel amigurumi, bordada a mano con exquisito detalle.",
+    "descripcion": "Esta figura amigurumi de la Sirenita Ariel, de 35 cm de altura, es una muestra impresionante de artesanía. Bordada a mano, cada detalle ha sido cuidadosamente elaborado, capturando la esencia de este querido personaje del mar. Ideal para regalos o colecciones, esta sirenita es un testimonio del arte del crochet.",
     "stock": 5,
     "precio": 712.00
   },
@@ -75,7 +84,8 @@
     "id": 10,
     "nombre": "Ajolote",
     "imagen": "img/ajolote.jpg",
-    "descripcion": "Chibi Ajolotito está hecho con un relleno súper suave y esponjoso y estambre acrílico con una sensación suave al tacto.",
+    "descripcion_corta": "Ajolote amigurumi chibi, suave y esponjoso, perfecto para acurrucarse.",
+    "descripcion": "Este ajolote amigurumi, con su diseño chibi y relleno esponjoso, es una delicia para los sentidos. Tejido con estambre acrílico suave, es ideal para abrazos confortantes. Su tamaño y textura lo hacen perfecto para niños y adultos, añadiendo un toque de diversión y ternura a cualquier ambiente.",
     "stock": 4,
     "precio": 360.00
   }

@@ -272,7 +272,10 @@
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" required><br>
 
-                <label for="descripcion">Descripción Corta:</label>
+                <label for="descripcion_corta">Descripción Corta:</label>
+                <input type="text" id="descripcion_corta" required><br>
+
+                <label for="descripcion">Descripción larga:</label>
                 <input type="text" id="descripcion" required><br>
 
                 <label for="stock">Stock:</label>
@@ -289,13 +292,16 @@
             </form>
           </div>
         </div>
-
         <!-- Tabla para mostrar los datos -->
+        <div class="py-5 text-center">
+          <h2>Productos</h2>
+        </div>
         <div class="row">
           <div class="col-md-12">
             <table class="table" id="tablaProductos">
               <tr>
                 <th>Nombre</th>
+                <th>Descripción corta</th>
                 <th>Descripción</th>
                 <th>Precio</th>
                 <th>Stock</th>
@@ -304,7 +310,6 @@
             </table>
           </div>
         </div>
-        <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
       </main>
     </div>
   </div>
@@ -326,15 +331,16 @@
 
       // Encabezado de la tabla
       var headerRow = tablaProductos.insertRow(0);
-      headerRow.innerHTML = "<th>Nombre</th><th>Descripción</th><th>Stock</th><th>Precio</th><th>Acciones</th>";
+      headerRow.innerHTML = "<th>Nombre</th><th>Descripción corta</th><th>Descripción</th><th>Stock</th><th>Precio</th><th>Acciones</th>";
 
       productos.forEach(function (producto) {
         var row = tablaProductos.insertRow(-1);
         row.insertCell(0).textContent = producto.nombre;
-        row.insertCell(1).textContent = producto.descripcion;
-        row.insertCell(2).textContent = producto.stock;
-        row.insertCell(3).textContent = producto.precio;
-        var actionsCell = row.insertCell(4);
+        row.insertCell(1).textContent = producto.descripcion_corta;
+        row.insertCell(2).textContent = producto.descripcion;
+        row.insertCell(3).textContent = producto.stock;
+        row.insertCell(4).textContent = producto.precio;
+        var actionsCell = row.insertCell(5);
         actionsCell.innerHTML = "<button class='editar' onclick='editarProducto(\"" + producto.nombre + "\")'>Editar</button> <button class='eliminar' onclick='eliminarProducto(\"" + producto.nombre + "\")'>Eliminar</button>";
       });
     }
@@ -348,22 +354,10 @@
       if (producto) {
         // Llenar el formulario con la información del producto
         document.getElementById('nombre').value = producto.nombre;
+        document.getElementById('descripcion_corta').value = producto.descripcion_corta;
         document.getElementById('descripcion').value = producto.descripcion;
         document.getElementById('stock').value = producto.stock;
         document.getElementById('precio').value = producto.precio;
-
-        // Establecer las categorías seleccionadas en el formulario
-        var categoriasSelect = document.getElementById('categorias');
-        categoriasSelect.innerHTML = ''; // Limpiar opciones anteriores
-        categorias.forEach(function (categoria) {
-          var opcion = document.createElement('option');
-          opcion.value = categoria;
-          opcion.textContent = categoria;
-          if (producto.categorias.includes(categoria)) {
-            opcion.selected = true;
-          }
-          categoriasSelect.appendChild(opcion);
-        });
 
         // Cambiar el botón de registrar a editar
         var registrarBtn = document.getElementById('registrarBtn');
@@ -382,7 +376,8 @@
     function editarProductoExistente(nombreActual) {
       // Obtener los valores del formulario de edición
       var nuevoNombre = document.getElementById('nombre').value;
-      var nuevaDescripcionCorta = document.getElementById('descripcion').value;
+      var nuevaDescripcionCorta = document.getElementById('descripcion_corta').value;
+      var nuevaDescripcion = document.getElementById('descripcion').value;
       var nuevoStock = document.getElementById('stock').value;
       var nuevoPrecio = document.getElementById('precio').value;
 
@@ -394,10 +389,11 @@
       if (producto) {
         // Actualizar la información del producto
         producto.nombre = nuevoNombre;
-        producto.descripcion = nuevaDescripcionCorta;
+        producto.descripcion_corta = nuevaDescripcionCorta;
+        producto.descripcion = nuevaDescripcion;
         producto.stock = nuevoStock;
         producto.precio = nuevoPrecio;
-        
+
 
         // Restaurar el formulario y cambiar el botón a Registrar Producto
         limpiarFormulario();
@@ -415,6 +411,7 @@
         // ... otras funciones y código ...
         // Obtener los valores del formulario
         var nombre = document.getElementById('nombre').value;
+        var descripcion_corta = document.getElementById('descripcion_corta').value;
         var descripcion = document.getElementById('descripcion').value;
         var stock = document.getElementById('stock').value;
         var precio = document.getElementById('precio').value;
@@ -422,6 +419,7 @@
         // Crear un nuevo producto
         var nuevoProducto = {
           nombre: nombre,
+          descripcion_corta: descripcion_corta,
           descripcion: descripcion,
           stock: stock,
           precio: precio
@@ -456,6 +454,7 @@
     // Función para limpiar el formulario
     function limpiarFormulario() {
       document.getElementById('nombre').value = '';
+      document.getElementById('descripcion_corta').value = '';
       document.getElementById('descripcion').value = '';
       document.getElementById('stock').value = '';
       document.getElementById('precio').value = '';
@@ -470,7 +469,7 @@
     }
 
     function cargarProductosDesdeJSON() {
-      fetch('../producto.json') // Reemplaza 'productos_1.json' con la ubicación correcta de tu archivo JSON
+      fetch('../producto.json') // Reemplaza 'producto.json' con la ubicación correcta de tu archivo JSON
         .then(response => response.json())
         .then(data => {
           // Guarda los productos en el array
