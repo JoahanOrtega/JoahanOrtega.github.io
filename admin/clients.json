@@ -1,0 +1,22 @@
+[
+    {
+        "nombre": "Karen",
+        "apellido": "Flores Ojeda",
+        "usuario": "karenfo",
+        "email": "karendoe@example.com",
+        "pais": "Mexico",
+        "estado": "Aguascalientes",
+        "direccion": "Av. Paseo de la cruz 114",
+        "cp": "20200"
+    },
+    {
+        "nombre": "Joahan",
+        "apellido": "Ortega Villalobos",
+        "usuario": "johanov",
+        "email": "karendoe@example.com",
+        "pais": "Mexico",
+        "estado": "Aguascalientes",
+        "direccion": "Av. Lopez Mateos 516",
+        "cp": "20200"
+    }
+]
