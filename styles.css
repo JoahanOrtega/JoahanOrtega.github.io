@@ -15,8 +15,9 @@ body {
 
 /* Estilos para el contenedor del producto */
 .product-container {
+  align-items: center;
   display: flex;
-  margin: 20px;
+ margin-top: 110px;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
