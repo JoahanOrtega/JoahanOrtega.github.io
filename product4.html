@@ -84,6 +84,7 @@
           <label for="star1"></label>
         </div>
         <h1 id="product-name"></h1>
+        <p id="product-descriptionC"></p>
         <p id="product-description"></p>
         <p id="product-stock"></p>
         <p id="product-price"></p>
@@ -164,6 +165,7 @@
           if (selectedProduct) {
             const productName = document.getElementById('product-name');
             const productImage = document.getElementById('product-image');
+            const productDescriptionC = document.getElementById('product-descriptionC')
             const productDescription = document.getElementById('product-description');
             const productStock = document.getElementById('product-stock');
             const productPrice = document.getElementById('product-price');
@@ -172,6 +174,7 @@
             productName.textContent = selectedProduct.nombre;
             productImage.src = selectedProduct.imagen;
             productImage.alt = selectedProduct.nombre;
+            productDescriptionC.textContent = selectedProduct.descripcionC;
             productDescription.textContent = selectedProduct.descripcion;
             productStock.textContent = `Stock: ${selectedProduct.stock}`;
             productPrice.textContent = `Precio: $${selectedProduct.precio.toFixed(2)}`;
